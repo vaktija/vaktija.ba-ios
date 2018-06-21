@@ -1,0 +1,766 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		810660691D142050004E2617 /* Alarm 1_alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 810660671D142050004E2617 /* Alarm 1_alarm.mp3 */; };
+		8106606A1D142050004E2617 /* Notifikacija 1_notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 810660681D142050004E2617 /* Notifikacija 1_notification.mp3 */; };
+		8118306E1C86E68900C6FEF6 /* VBOffset+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811830681C86E68900C6FEF6 /* VBOffset+CoreDataProperties.swift */; };
+		8118306F1C86E68900C6FEF6 /* VBOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811830691C86E68900C6FEF6 /* VBOffset.swift */; };
+		811830701C86E68900C6FEF6 /* VBLocation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118306A1C86E68900C6FEF6 /* VBLocation+CoreDataProperties.swift */; };
+		811830711C86E68900C6FEF6 /* VBLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118306B1C86E68900C6FEF6 /* VBLocation.swift */; };
+		811830721C86E68900C6FEF6 /* VBSchedule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118306C1C86E68900C6FEF6 /* VBSchedule+CoreDataProperties.swift */; };
+		811830731C86E68900C6FEF6 /* VBSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118306D1C86E68900C6FEF6 /* VBSchedule.swift */; };
+		811830781C8719FA00C6FEF6 /* locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 811830751C8719FA00C6FEF6 /* locations.csv */; };
+		811830791C8719FA00C6FEF6 /* offset.csv in Resources */ = {isa = PBXBuildFile; fileRef = 811830761C8719FA00C6FEF6 /* offset.csv */; };
+		8118307A1C8719FA00C6FEF6 /* schedule.csv in Resources */ = {isa = PBXBuildFile; fileRef = 811830771C8719FA00C6FEF6 /* schedule.csv */; };
+		811830811C873A6600C6FEF6 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811830801C873A6600C6FEF6 /* ScheduleTableViewCell.swift */; };
+		812F40121CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F40111CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift */; };
+		81360C571CA416CD0077D27F /* SchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81360C561CA416CD0077D27F /* SchedulesViewController.swift */; };
+		8152F68E1CC9D66600B72B98 /* silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8152F68D1CC9D66600B72B98 /* silence.wav */; };
+		815BA2CC1CC2CFD400E3156D /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815BA2CB1CC2CFD400E3156D /* AboutViewController.swift */; };
+		815CFAEB1D90FBB90031B8A0 /* TimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CFAEA1D90FBB90031B8A0 /* TimesTableViewController.swift */; };
+		8161421D1CD8B7BF00142066 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161421C1CD8B7BF00142066 /* SearchTableViewController.swift */; };
+		816847B41CBA4F4A009AE494 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816847B31CBA4F4A009AE494 /* DateViewController.swift */; };
+		816847B61CBA52E7009AE494 /* DateScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816847B51CBA52E7009AE494 /* DateScheduleTableViewController.swift */; };
+		816EA2181CB396BB00481FCA /* schedule_original.csv in Resources */ = {isa = PBXBuildFile; fileRef = 816EA2171CB396BB00481FCA /* schedule_original.csv */; };
+		817194C81CC09ACD003F0AE5 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 817194C61CC09ACD003F0AE5 /* iTunesArtwork.png */; };
+		817194C91CC09ACD003F0AE5 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 817194C71CC09ACD003F0AE5 /* iTunesArtwork@2x.png */; };
+		81747ABD1CBFDCFD00F1D225 /* DateScheduleTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81747ABC1CBFDCFD00F1D225 /* DateScheduleTableHeaderView.swift */; };
+		818A604D1CE321EB003E546B /* RemarksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818A604C1CE321EB003E546B /* RemarksTableViewController.swift */; };
+		819F94C11DBCD94E00735B6B /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812FB6FB1C900566003B0F4D /* NotificationCenter.framework */; };
+		819F94C41DBCD94E00735B6B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819F94C31DBCD94E00735B6B /* TodayViewController.swift */; };
+		819F94C71DBCD94E00735B6B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 819F94C51DBCD94E00735B6B /* MainInterface.storyboard */; };
+		819F94CB1DBCD94E00735B6B /* VaktijaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 819F94C01DBCD94E00735B6B /* VaktijaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		819F94D01DBD5F4E00735B6B /* VBPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EF3EAF1C8EBCD70095A57D /* VBPrayer.swift */; };
+		819F94D21DBD5F9C00735B6B /* VBSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118306D1C86E68900C6FEF6 /* VBSchedule.swift */; };
+		819F94D31DBD5FA000735B6B /* VBLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118306B1C86E68900C6FEF6 /* VBLocation.swift */; };
+		819F94D41DBD5FA300735B6B /* VBOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811830691C86E68900C6FEF6 /* VBOffset.swift */; };
+		819F94D51DBD5FB200735B6B /* VBCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD01831CA7C6F900E9ACD4 /* VBCoreDataStack.swift */; };
+		819F94D61DBD60E400735B6B /* VBOffset+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811830681C86E68900C6FEF6 /* VBOffset+CoreDataProperties.swift */; };
+		819F94D71DBD60E800735B6B /* VBLocation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118306A1C86E68900C6FEF6 /* VBLocation+CoreDataProperties.swift */; };
+		819F94D81DBD60EB00735B6B /* VBSchedule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118306C1C86E68900C6FEF6 /* VBSchedule+CoreDataProperties.swift */; };
+		819F94D91DBD61E900735B6B /* Vaktija_ba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81E8C0991C861EB80023B9CE /* Vaktija_ba.xcdatamodeld */; };
+		81AA5A6D1CC39DDE002682D5 /* QiblaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA5A6C1CC39DDE002682D5 /* QiblaViewController.swift */; };
+		81AD01841CA7C6F900E9ACD4 /* VBCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD01831CA7C6F900E9ACD4 /* VBCoreDataStack.swift */; };
+		81AD01891CA7D0D900E9ACD4 /* VBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD01881CA7D0D900E9ACD4 /* VBNotification.swift */; };
+		81AF42451C8AB92F00B0B9C0 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AF42441C8AB92F00B0B9C0 /* SettingsTableViewCell.swift */; };
+		81C223E81C8C1D1900B863DD /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C223E71C8C1D1900B863DD /* ScheduleTableViewController.swift */; };
+		81C223EA1C8C26C000B863DD /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C223E91C8C26C000B863DD /* AlarmTableViewCell.swift */; };
+		81C223EE1C8C2FA000B863DD /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C223ED1C8C2FA000B863DD /* NotificationTableViewCell.swift */; };
+		81D7A4701C898DF00082B0CC /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A46F1C898DF00082B0CC /* LocationsTableViewController.swift */; };
+		81D7A4721C898E050082B0CC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A4711C898E050082B0CC /* SettingsTableViewController.swift */; };
+		81D7A4741C89E1DA0082B0CC /* RingtonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A4731C89E1DA0082B0CC /* RingtonesTableViewController.swift */; };
+		81DD18FF1C915A10001117E1 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DD18FE1C915A10001117E1 /* MenuTableViewController.swift */; };
+		81E8C0931C861EB80023B9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8C0921C861EB80023B9CE /* AppDelegate.swift */; };
+		81E8C0981C861EB80023B9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E8C0961C861EB80023B9CE /* Main.storyboard */; };
+		81E8C09B1C861EB80023B9CE /* Vaktija_ba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81E8C0991C861EB80023B9CE /* Vaktija_ba.xcdatamodeld */; };
+		81E8C09D1C861EB80023B9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E8C09C1C861EB80023B9CE /* Assets.xcassets */; };
+		81E8C0A01C861EB80023B9CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E8C09E1C861EB80023B9CE /* LaunchScreen.storyboard */; };
+		81EF3EB01C8EBCD70095A57D /* VBPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EF3EAF1C8EBCD70095A57D /* VBPrayer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		819F94C91DBCD94E00735B6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81E8C0871C861EB80023B9CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 819F94BF1DBCD94E00735B6B;
+			remoteInfo = VaktijaWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		812FB70A1C900567003B0F4D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				819F94CB1DBCD94E00735B6B /* VaktijaWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		810660671D142050004E2617 /* Alarm 1_alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alarm 1_alarm.mp3"; sourceTree = "<group>"; };
+		810660681D142050004E2617 /* Notifikacija 1_notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Notifikacija 1_notification.mp3"; sourceTree = "<group>"; };
+		811830681C86E68900C6FEF6 /* VBOffset+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VBOffset+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		811830691C86E68900C6FEF6 /* VBOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBOffset.swift; sourceTree = "<group>"; };
+		8118306A1C86E68900C6FEF6 /* VBLocation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VBLocation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8118306B1C86E68900C6FEF6 /* VBLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBLocation.swift; sourceTree = "<group>"; };
+		8118306C1C86E68900C6FEF6 /* VBSchedule+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VBSchedule+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8118306D1C86E68900C6FEF6 /* VBSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBSchedule.swift; sourceTree = "<group>"; };
+		811830751C8719FA00C6FEF6 /* locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = locations.csv; sourceTree = "<group>"; };
+		811830761C8719FA00C6FEF6 /* offset.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = offset.csv; sourceTree = "<group>"; };
+		811830771C8719FA00C6FEF6 /* schedule.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schedule.csv; sourceTree = "<group>"; };
+		811830801C873A6600C6FEF6 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		812F40111CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		812FB6FB1C900566003B0F4D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		81360C561CA416CD0077D27F /* SchedulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesViewController.swift; sourceTree = "<group>"; };
+		8152F68D1CC9D66600B72B98 /* silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = silence.wav; sourceTree = "<group>"; };
+		815BA2CB1CC2CFD400E3156D /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		815CFAEA1D90FBB90031B8A0 /* TimesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesTableViewController.swift; sourceTree = "<group>"; };
+		8161421C1CD8B7BF00142066 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		816847B31CBA4F4A009AE494 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
+		816847B51CBA52E7009AE494 /* DateScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateScheduleTableViewController.swift; sourceTree = "<group>"; };
+		816EA2171CB396BB00481FCA /* schedule_original.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schedule_original.csv; sourceTree = "<group>"; };
+		8171016A1CA6B8F50072C0A3 /* Vaktija.ba.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Vaktija.ba.entitlements; sourceTree = "<group>"; };
+		817194C61CC09ACD003F0AE5 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		817194C71CC09ACD003F0AE5 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		81747ABC1CBFDCFD00F1D225 /* DateScheduleTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateScheduleTableHeaderView.swift; sourceTree = "<group>"; };
+		818A604C1CE321EB003E546B /* RemarksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemarksTableViewController.swift; sourceTree = "<group>"; };
+		819F94C01DBCD94E00735B6B /* VaktijaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VaktijaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		819F94C31DBCD94E00735B6B /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		819F94C61DBCD94E00735B6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		819F94C81DBCD94E00735B6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		819F94CF1DBCD98B00735B6B /* VaktijaWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VaktijaWidget.entitlements; sourceTree = "<group>"; };
+		81AA5A6C1CC39DDE002682D5 /* QiblaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiblaViewController.swift; sourceTree = "<group>"; };
+		81AD01831CA7C6F900E9ACD4 /* VBCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBCoreDataStack.swift; sourceTree = "<group>"; };
+		81AD01881CA7D0D900E9ACD4 /* VBNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBNotification.swift; sourceTree = "<group>"; };
+		81AF42441C8AB92F00B0B9C0 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		81C223E71C8C1D1900B863DD /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		81C223E91C8C26C000B863DD /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
+		81C223ED1C8C2FA000B863DD /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		81D7A46F1C898DF00082B0CC /* LocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
+		81D7A4711C898E050082B0CC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		81D7A4731C89E1DA0082B0CC /* RingtonesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingtonesTableViewController.swift; sourceTree = "<group>"; };
+		81DD18FE1C915A10001117E1 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		81E8C08F1C861EB80023B9CE /* Vaktija.ba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vaktija.ba.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81E8C0921C861EB80023B9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		81E8C0971C861EB80023B9CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		81E8C09A1C861EB80023B9CE /* Vaktija_ba.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Vaktija_ba.xcdatamodel; sourceTree = "<group>"; };
+		81E8C09C1C861EB80023B9CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81E8C09F1C861EB80023B9CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		81E8C0A11C861EB80023B9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81EF3EAF1C8EBCD70095A57D /* VBPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBPrayer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		819F94BD1DBCD94E00735B6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				819F94C11DBCD94E00735B6B /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81E8C08C1C861EB80023B9CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		811830741C87199500C6FEF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8152F68C1CC9D62800B72B98 /* Audio */,
+				81AF42481C8AF39500B0B9C0 /* Images */,
+				81AF42471C8AF38B00B0B9C0 /* Data */,
+				81AF42461C8AF37A00B0B9C0 /* Ringtones */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8118307F1C873A1D00C6FEF6 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				811830801C873A6600C6FEF6 /* ScheduleTableViewCell.swift */,
+				81AF42441C8AB92F00B0B9C0 /* SettingsTableViewCell.swift */,
+				81C223E91C8C26C000B863DD /* AlarmTableViewCell.swift */,
+				81C223ED1C8C2FA000B863DD /* NotificationTableViewCell.swift */,
+				81747ABC1CBFDCFD00F1D225 /* DateScheduleTableHeaderView.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		812F40101CA95B69005EDE56 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				812F40111CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		812FB6FA1C900566003B0F4D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				812FB6FB1C900566003B0F4D /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8152F68C1CC9D62800B72B98 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				8152F68D1CC9D66600B72B98 /* silence.wav */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		819F94C21DBCD94E00735B6B /* VaktijaWidget */ = {
+			isa = PBXGroup;
+			children = (
+				819F94CF1DBCD98B00735B6B /* VaktijaWidget.entitlements */,
+				819F94C31DBCD94E00735B6B /* TodayViewController.swift */,
+				819F94C51DBCD94E00735B6B /* MainInterface.storyboard */,
+				819F94C81DBCD94E00735B6B /* Info.plist */,
+			);
+			path = VaktijaWidget;
+			sourceTree = "<group>";
+		};
+		81AF42461C8AF37A00B0B9C0 /* Ringtones */ = {
+			isa = PBXGroup;
+			children = (
+				810660671D142050004E2617 /* Alarm 1_alarm.mp3 */,
+				810660681D142050004E2617 /* Notifikacija 1_notification.mp3 */,
+			);
+			path = Ringtones;
+			sourceTree = "<group>";
+		};
+		81AF42471C8AF38B00B0B9C0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				816EA2171CB396BB00481FCA /* schedule_original.csv */,
+				811830751C8719FA00C6FEF6 /* locations.csv */,
+				811830761C8719FA00C6FEF6 /* offset.csv */,
+				811830771C8719FA00C6FEF6 /* schedule.csv */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		81AF42481C8AF39500B0B9C0 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				817194C61CC09ACD003F0AE5 /* iTunesArtwork.png */,
+				817194C71CC09ACD003F0AE5 /* iTunesArtwork@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		81E8C0861C861EB80023B9CE = {
+			isa = PBXGroup;
+			children = (
+				81E8C0911C861EB80023B9CE /* Vaktija.ba */,
+				819F94C21DBCD94E00735B6B /* VaktijaWidget */,
+				812FB6FA1C900566003B0F4D /* Frameworks */,
+				81E8C0901C861EB80023B9CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		81E8C0901C861EB80023B9CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81E8C08F1C861EB80023B9CE /* Vaktija.ba.app */,
+				819F94C01DBCD94E00735B6B /* VaktijaWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81E8C0911C861EB80023B9CE /* Vaktija.ba */ = {
+			isa = PBXGroup;
+			children = (
+				81E8C0921C861EB80023B9CE /* AppDelegate.swift */,
+				81E8C0961C861EB80023B9CE /* Main.storyboard */,
+				81E8C0991C861EB80023B9CE /* Vaktija_ba.xcdatamodeld */,
+				81E8C0A81C8623510023B9CE /* Models */,
+				81EF3EAE1C8EBC930095A57D /* Classes */,
+				81E8C0A71C86229C0023B9CE /* ViewControllers */,
+				81E8C09C1C861EB80023B9CE /* Assets.xcassets */,
+				81E8C09E1C861EB80023B9CE /* LaunchScreen.storyboard */,
+				81E8C0A11C861EB80023B9CE /* Info.plist */,
+				8171016A1CA6B8F50072C0A3 /* Vaktija.ba.entitlements */,
+				811830741C87199500C6FEF6 /* Resources */,
+			);
+			path = Vaktija.ba;
+			sourceTree = "<group>";
+		};
+		81E8C0A71C86229C0023B9CE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				81360C561CA416CD0077D27F /* SchedulesViewController.swift */,
+				81C223E71C8C1D1900B863DD /* ScheduleTableViewController.swift */,
+				81D7A46F1C898DF00082B0CC /* LocationsTableViewController.swift */,
+				8161421C1CD8B7BF00142066 /* SearchTableViewController.swift */,
+				81DD18FE1C915A10001117E1 /* MenuTableViewController.swift */,
+				815CFAEA1D90FBB90031B8A0 /* TimesTableViewController.swift */,
+				81AA5A6C1CC39DDE002682D5 /* QiblaViewController.swift */,
+				816847B31CBA4F4A009AE494 /* DateViewController.swift */,
+				816847B51CBA52E7009AE494 /* DateScheduleTableViewController.swift */,
+				81D7A4711C898E050082B0CC /* SettingsTableViewController.swift */,
+				81D7A4731C89E1DA0082B0CC /* RingtonesTableViewController.swift */,
+				818A604C1CE321EB003E546B /* RemarksTableViewController.swift */,
+				815BA2CB1CC2CFD400E3156D /* AboutViewController.swift */,
+				812F40101CA95B69005EDE56 /* CollectionViewCells */,
+				8118307F1C873A1D00C6FEF6 /* TableViewCells */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		81E8C0A81C8623510023B9CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				811830681C86E68900C6FEF6 /* VBOffset+CoreDataProperties.swift */,
+				811830691C86E68900C6FEF6 /* VBOffset.swift */,
+				8118306A1C86E68900C6FEF6 /* VBLocation+CoreDataProperties.swift */,
+				8118306B1C86E68900C6FEF6 /* VBLocation.swift */,
+				8118306C1C86E68900C6FEF6 /* VBSchedule+CoreDataProperties.swift */,
+				8118306D1C86E68900C6FEF6 /* VBSchedule.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		81EF3EAE1C8EBC930095A57D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				81EF3EAF1C8EBCD70095A57D /* VBPrayer.swift */,
+				81AD01881CA7D0D900E9ACD4 /* VBNotification.swift */,
+				81AD01831CA7C6F900E9ACD4 /* VBCoreDataStack.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		819F94BF1DBCD94E00735B6B /* VaktijaWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 819F94CE1DBCD94E00735B6B /* Build configuration list for PBXNativeTarget "VaktijaWidget" */;
+			buildPhases = (
+				819F94BC1DBCD94E00735B6B /* Sources */,
+				819F94BD1DBCD94E00735B6B /* Frameworks */,
+				819F94BE1DBCD94E00735B6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VaktijaWidget;
+			productName = VaktijaWidget;
+			productReference = 819F94C01DBCD94E00735B6B /* VaktijaWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		81E8C08E1C861EB80023B9CE /* Vaktija.ba */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81E8C0A41C861EB80023B9CE /* Build configuration list for PBXNativeTarget "Vaktija.ba" */;
+			buildPhases = (
+				81E8C08B1C861EB80023B9CE /* Sources */,
+				81E8C08C1C861EB80023B9CE /* Frameworks */,
+				81E8C08D1C861EB80023B9CE /* Resources */,
+				812FB70A1C900567003B0F4D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				819F94CA1DBCD94E00735B6B /* PBXTargetDependency */,
+			);
+			name = Vaktija.ba;
+			productName = Vaktija.ba;
+			productReference = 81E8C08F1C861EB80023B9CE /* Vaktija.ba.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81E8C0871C861EB80023B9CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Vaktija.ba;
+				TargetAttributes = {
+					819F94BF1DBCD94E00735B6B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 2B7AC2X622;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					81E8C08E1C861EB80023B9CE = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 2B7AC2X622;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 81E8C08A1C861EB80023B9CE /* Build configuration list for PBXProject "Vaktija.ba" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81E8C0861C861EB80023B9CE;
+			productRefGroup = 81E8C0901C861EB80023B9CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81E8C08E1C861EB80023B9CE /* Vaktija.ba */,
+				819F94BF1DBCD94E00735B6B /* VaktijaWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		819F94BE1DBCD94E00735B6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				819F94C71DBCD94E00735B6B /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81E8C08D1C861EB80023B9CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81E8C0A01C861EB80023B9CE /* LaunchScreen.storyboard in Resources */,
+				8118307A1C8719FA00C6FEF6 /* schedule.csv in Resources */,
+				81E8C09D1C861EB80023B9CE /* Assets.xcassets in Resources */,
+				816EA2181CB396BB00481FCA /* schedule_original.csv in Resources */,
+				817194C81CC09ACD003F0AE5 /* iTunesArtwork.png in Resources */,
+				810660691D142050004E2617 /* Alarm 1_alarm.mp3 in Resources */,
+				8152F68E1CC9D66600B72B98 /* silence.wav in Resources */,
+				81E8C0981C861EB80023B9CE /* Main.storyboard in Resources */,
+				8106606A1D142050004E2617 /* Notifikacija 1_notification.mp3 in Resources */,
+				817194C91CC09ACD003F0AE5 /* iTunesArtwork@2x.png in Resources */,
+				811830781C8719FA00C6FEF6 /* locations.csv in Resources */,
+				811830791C8719FA00C6FEF6 /* offset.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		819F94BC1DBCD94E00735B6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				819F94D31DBD5FA000735B6B /* VBLocation.swift in Sources */,
+				819F94D81DBD60EB00735B6B /* VBSchedule+CoreDataProperties.swift in Sources */,
+				819F94D21DBD5F9C00735B6B /* VBSchedule.swift in Sources */,
+				819F94D91DBD61E900735B6B /* Vaktija_ba.xcdatamodeld in Sources */,
+				819F94D71DBD60E800735B6B /* VBLocation+CoreDataProperties.swift in Sources */,
+				819F94D41DBD5FA300735B6B /* VBOffset.swift in Sources */,
+				819F94D01DBD5F4E00735B6B /* VBPrayer.swift in Sources */,
+				819F94D61DBD60E400735B6B /* VBOffset+CoreDataProperties.swift in Sources */,
+				819F94C41DBCD94E00735B6B /* TodayViewController.swift in Sources */,
+				819F94D51DBD5FB200735B6B /* VBCoreDataStack.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81E8C08B1C861EB80023B9CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				815CFAEB1D90FBB90031B8A0 /* TimesTableViewController.swift in Sources */,
+				81C223EE1C8C2FA000B863DD /* NotificationTableViewCell.swift in Sources */,
+				81D7A4701C898DF00082B0CC /* LocationsTableViewController.swift in Sources */,
+				811830701C86E68900C6FEF6 /* VBLocation+CoreDataProperties.swift in Sources */,
+				8161421D1CD8B7BF00142066 /* SearchTableViewController.swift in Sources */,
+				81AA5A6D1CC39DDE002682D5 /* QiblaViewController.swift in Sources */,
+				81E8C09B1C861EB80023B9CE /* Vaktija_ba.xcdatamodeld in Sources */,
+				81C223EA1C8C26C000B863DD /* AlarmTableViewCell.swift in Sources */,
+				81AF42451C8AB92F00B0B9C0 /* SettingsTableViewCell.swift in Sources */,
+				818A604D1CE321EB003E546B /* RemarksTableViewController.swift in Sources */,
+				816847B41CBA4F4A009AE494 /* DateViewController.swift in Sources */,
+				81D7A4741C89E1DA0082B0CC /* RingtonesTableViewController.swift in Sources */,
+				81DD18FF1C915A10001117E1 /* MenuTableViewController.swift in Sources */,
+				81AD01841CA7C6F900E9ACD4 /* VBCoreDataStack.swift in Sources */,
+				81AD01891CA7D0D900E9ACD4 /* VBNotification.swift in Sources */,
+				81C223E81C8C1D1900B863DD /* ScheduleTableViewController.swift in Sources */,
+				8118306F1C86E68900C6FEF6 /* VBOffset.swift in Sources */,
+				811830711C86E68900C6FEF6 /* VBLocation.swift in Sources */,
+				8118306E1C86E68900C6FEF6 /* VBOffset+CoreDataProperties.swift in Sources */,
+				811830811C873A6600C6FEF6 /* ScheduleTableViewCell.swift in Sources */,
+				81747ABD1CBFDCFD00F1D225 /* DateScheduleTableHeaderView.swift in Sources */,
+				81D7A4721C898E050082B0CC /* SettingsTableViewController.swift in Sources */,
+				811830731C86E68900C6FEF6 /* VBSchedule.swift in Sources */,
+				816847B61CBA52E7009AE494 /* DateScheduleTableViewController.swift in Sources */,
+				811830721C86E68900C6FEF6 /* VBSchedule+CoreDataProperties.swift in Sources */,
+				812F40121CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift in Sources */,
+				81EF3EB01C8EBCD70095A57D /* VBPrayer.swift in Sources */,
+				81E8C0931C861EB80023B9CE /* AppDelegate.swift in Sources */,
+				815BA2CC1CC2CFD400E3156D /* AboutViewController.swift in Sources */,
+				81360C571CA416CD0077D27F /* SchedulesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		819F94CA1DBCD94E00735B6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 819F94BF1DBCD94E00735B6B /* VaktijaWidget */;
+			targetProxy = 819F94C91DBCD94E00735B6B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		819F94C51DBCD94E00735B6B /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				819F94C61DBCD94E00735B6B /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		81E8C0961C861EB80023B9CE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81E8C0971C861EB80023B9CE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		81E8C09E1C861EB80023B9CE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				81E8C09F1C861EB80023B9CE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		819F94CC1DBCD94E00735B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = VaktijaWidget/VaktijaWidget.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2B7AC2X622;
+				INFOPLIST_FILE = VaktijaWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ba.vaktija.Vaktija-ba.VaktijaWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		819F94CD1DBCD94E00735B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_ENTITLEMENTS = VaktijaWidget/VaktijaWidget.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2B7AC2X622;
+				INFOPLIST_FILE = VaktijaWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ba.vaktija.Vaktija-ba.VaktijaWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		81E8C0A21C861EB80023B9CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81E8C0A31C861EB80023B9CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81E8C0A51C861EB80023B9CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = Vaktija.ba/Vaktija.ba.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2B7AC2X622;
+				INFOPLIST_FILE = Vaktija.ba/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ba.vaktija.Vaktija-ba";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		81E8C0A61C861EB80023B9CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = Vaktija.ba/Vaktija.ba.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2B7AC2X622;
+				INFOPLIST_FILE = Vaktija.ba/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ba.vaktija.Vaktija-ba";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		819F94CE1DBCD94E00735B6B /* Build configuration list for PBXNativeTarget "VaktijaWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				819F94CC1DBCD94E00735B6B /* Debug */,
+				819F94CD1DBCD94E00735B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81E8C08A1C861EB80023B9CE /* Build configuration list for PBXProject "Vaktija.ba" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81E8C0A21C861EB80023B9CE /* Debug */,
+				81E8C0A31C861EB80023B9CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81E8C0A41C861EB80023B9CE /* Build configuration list for PBXNativeTarget "Vaktija.ba" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81E8C0A51C861EB80023B9CE /* Debug */,
+				81E8C0A61C861EB80023B9CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		81E8C0991C861EB80023B9CE /* Vaktija_ba.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81E8C09A1C861EB80023B9CE /* Vaktija_ba.xcdatamodel */,
+			);
+			currentVersion = 81E8C09A1C861EB80023B9CE /* Vaktija_ba.xcdatamodel */;
+			path = Vaktija_ba.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 81E8C0871C861EB80023B9CE /* Project object */;
+}
