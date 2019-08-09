@@ -63,7 +63,7 @@ class RingtonesTableViewController: UITableViewController
             }
         }
         
-        if isMovingFromParentViewController && thereAreChanges
+        if isMovingFromParent && thereAreChanges
         {
             var shouldReschedule = false
             

@@ -126,7 +126,7 @@ class MenuTableViewController: UITableViewController, UIActivityItemSource
     
     // MARK: - Activity Item Source
     
-    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType) -> Any?
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any?
     {
         var schedule: VBSchedule? = nil
         var location: VBLocation? = nil
@@ -171,7 +171,7 @@ class MenuTableViewController: UITableViewController, UIActivityItemSource
         
         var content = ""
         
-        if activityType == UIActivityType.postToTwitter
+        if activityType == UIActivity.ActivityType.postToTwitter
         {
             let isJumuah = VBPrayer.isJumuah(Date())
             
@@ -211,7 +211,7 @@ class MenuTableViewController: UITableViewController, UIActivityItemSource
             content += "akšam: " + VBPrayer.displayPrayerScheduleTime(forSchedule: schedule!, prayerTime: .Maghrib) + "\n"
             content += "jacija: " + VBPrayer.displayPrayerScheduleTime(forSchedule: schedule!, prayerTime: .Isha) + "\n"
             
-            if activityType == UIActivityType.postToFacebook
+            if activityType == UIActivity.ActivityType.postToFacebook
             {
                 dismiss(animated: true, completion: {
                     
@@ -268,7 +268,7 @@ class MenuTableViewController: UITableViewController, UIActivityItemSource
         return ""
     }
     
-    func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivityType?) -> String
+    func activityViewController(_ activityViewController: UIActivityViewController, subjectForActivityType activityType: UIActivity.ActivityType?) -> String
     {
         let infoDictionary = Bundle.main.infoDictionary
         let bundleName = infoDictionary!["CFBundleName"] as! String

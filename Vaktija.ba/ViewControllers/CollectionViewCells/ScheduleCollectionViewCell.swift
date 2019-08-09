@@ -65,27 +65,27 @@ class ScheduleCollectionViewCell: UICollectionViewCell
         return false
     }
     
-    func skipAlarm(_ sender: UIMenuController)
+    @objc func skipAlarm(_ sender: UIMenuController)
     {
         delegate?.scheduleCollectionViewCellSkipAlarm(self)
     }
     
-    func turnAlarm(_ sender: UIMenuController)
+    @objc func turnAlarm(_ sender: UIMenuController)
     {
         delegate?.scheduleCollectionViewCellSkipAlarm(self)
     }
     
-    func skipNotification(_ sender: UIMenuController)
+    @objc func skipNotification(_ sender: UIMenuController)
     {
         delegate?.scheduleCollectionViewCellSkipNotification(self)
     }
     
-    func turnNotification(_ sender: UIMenuController)
+    @objc func turnNotification(_ sender: UIMenuController)
     {
         delegate?.scheduleCollectionViewCellSkipNotification(self)
     }
     
-    func showScheduleSettings(_ indexPath: IndexPath)
+    @objc func showScheduleSettings(_ indexPath: IndexPath)
     {
         delegate?.scheduleCollectionViewCellShowScheduleSettings(self)
     }

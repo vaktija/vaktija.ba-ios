@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     // MARK: - Application's Life Cycle
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
         // Override point for customization after application launch.
         
@@ -120,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 var soundID: SystemSoundID = 0
                 let soundName = userDefaults.string(forKey: type + "Ringtone")!
                 
-                if let ref: CFURL = CFBundleCopyResourceURL(CFBundleGetMainBundle(), soundName as CFString!, "mp3" as CFString!, nil)
+                if let ref: CFURL = CFBundleCopyResourceURL(CFBundleGetMainBundle(), soundName as CFString, "mp3" as CFString, nil)
                 {
                     AudioServicesCreateSystemSoundID(ref, &soundID)
                     AudioServicesPlaySystemSound(soundID)
@@ -203,10 +203,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 }
                                 
                                 // Store the value into the values array
-                                values.append(value as! String)
+                                values.append(value! as String)
                                 
                                 // Retrieve the unscanned remainder of the string
-                                if textScanner.scanLocation < textScanner.string.characters.count
+                                if textScanner.scanLocation < textScanner.string.count
                                 {
                                     textToScan = (textScanner.string as NSString).substring(from: textScanner.scanLocation + 1)
                                 }

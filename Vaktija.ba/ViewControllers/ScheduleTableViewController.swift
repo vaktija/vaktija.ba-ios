@@ -66,7 +66,7 @@ class ScheduleTableViewController: UITableViewController
         }
         
         tableView.estimatedRowHeight = 101
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
@@ -74,7 +74,7 @@ class ScheduleTableViewController: UITableViewController
     {
         super.viewWillDisappear(animated)
         
-        if isMovingFromParentViewController && thereAreChanges
+        if isMovingFromParent && thereAreChanges
         {
             var shouldReschedule = false
             
@@ -116,7 +116,7 @@ class ScheduleTableViewController: UITableViewController
     
     // MARK: - Navigation Bar
     
-    func jumuahBarButtonItemClick(_ sender:UIBarButtonItem)
+    @objc func jumuahBarButtonItemClick(_ sender:UIBarButtonItem)
     {
         let scheduleTableViewController = storyboard?.instantiateViewController(withIdentifier: "ScheduleTableViewController") as! ScheduleTableViewController
         
@@ -126,7 +126,7 @@ class ScheduleTableViewController: UITableViewController
         navigationController?.pushViewController(scheduleTableViewController, animated: true)
     }
     
-    func dhuhrBarButtonItemClick(_ sender:UIBarButtonItem)
+    @objc func dhuhrBarButtonItemClick(_ sender:UIBarButtonItem)
     {
         let scheduleTableViewController = storyboard?.instantiateViewController(withIdentifier: "ScheduleTableViewController") as! ScheduleTableViewController
         
@@ -136,7 +136,7 @@ class ScheduleTableViewController: UITableViewController
         navigationController?.pushViewController(scheduleTableViewController, animated: true)
     }
     
-    func resetBarButtonItemClick(_ sender: UIBarButtonItem)
+    @objc func resetBarButtonItemClick(_ sender: UIBarButtonItem)
     {
         if var rightBarButtonItems = navigationItem.rightBarButtonItems
         {
@@ -231,7 +231,7 @@ class ScheduleTableViewController: UITableViewController
     
     // MARK: - Switch Delegates
     
-    func alarmStateSwitchValueChanged(_ sender: UISwitch)
+    @objc func alarmStateSwitchValueChanged(_ sender: UISwitch)
     {
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
         
@@ -254,7 +254,7 @@ class ScheduleTableViewController: UITableViewController
         }
     }
     
-    func notificationStateSwitchValueChanged(_ sender: UISwitch)
+    @objc func notificationStateSwitchValueChanged(_ sender: UISwitch)
     {
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
         
@@ -279,7 +279,7 @@ class ScheduleTableViewController: UITableViewController
     
     // MARK: - Slider Delegates
     
-    func alarmOffsetSliderValueChanged(_ sender: UISlider)
+    @objc func alarmOffsetSliderValueChanged(_ sender: UISlider)
     {
         let offset = Int(sender.value/100.0)
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
@@ -302,7 +302,7 @@ class ScheduleTableViewController: UITableViewController
         }
     }
     
-    func notificationOffsetSliderValueChanged(_ sender: UISlider)
+    @objc func notificationOffsetSliderValueChanged(_ sender: UISlider)
     {
         let offset = Int(sender.value/100.0)
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")

@@ -143,7 +143,7 @@ class TodayViewController: UIViewController, NCWidgetProviding
         prepareData()
     }
     
-    private func widgetPerformUpdate(completionHandler: ((NCUpdateResult) -> Void))
+    internal func widgetPerformUpdate(completionHandler: ((NCUpdateResult) -> Void))
     {
         // Perform any setup necessary in order to update the view.
         
@@ -312,7 +312,7 @@ class TodayViewController: UIViewController, NCWidgetProviding
         }
     }
     
-    func timeRemainingTick()
+    @objc func timeRemainingTick()
     {
         if let goodTimer = timer
         {

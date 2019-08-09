@@ -48,7 +48,7 @@ class TimesTableViewController: UITableViewController
         
         let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: tableView.frame.midX - 15.0, y: tableView.frame.midY - 30.0, width: 30.0, height: 30.0))
         activityIndicatorView.hidesWhenStopped = true
-        activityIndicatorView.activityIndicatorViewStyle = .gray
+        activityIndicatorView.style = .gray
         
         tableView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
@@ -138,7 +138,8 @@ class TimesTableViewController: UITableViewController
                             var previousTimes = self.times.last
                             var previousTime = previousTimes?.last
                             previousTime?["notification"] = timeString
-                            previousTimes?[previousTimes!.count - 1] = previousTime!
+                            let index = previousTimes!.count - 1
+                            previousTimes?[index] = previousTime!
                             self.times[self.times.count - 1] = previousTimes!
                         }
                         else
@@ -234,7 +235,8 @@ class TimesTableViewController: UITableViewController
                             var previousTimes = self.times.last
                             var previousTime = previousTimes?.last
                             previousTime?["notification"] = timeString
-                            previousTimes?[previousTimes!.count - 1] = previousTime!
+                            let index = previousTimes!.count - 1
+                            previousTimes?[index] = previousTime!
                             self.times[self.times.count - 1] = previousTimes!
                         }
                         else

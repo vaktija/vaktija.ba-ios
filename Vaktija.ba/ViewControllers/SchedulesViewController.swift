@@ -79,8 +79,8 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         
         silentModeDetectorRun()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -97,14 +97,14 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
             self.configureViewsOnInterfaceOrientationChanges()
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidChangeStatusBarOrientation(_:)), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidChangeStatusBarOrientation(_:)), name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
         
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -133,7 +133,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         return true
     }
     
-    func applicationDidChangeStatusBarOrientation(_ notification: Notification)
+    @objc func applicationDidChangeStatusBarOrientation(_ notification: Notification)
     {
         schedulesCollectionView.collectionViewLayout.invalidateLayout()
         
@@ -144,7 +144,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    func applicationDidEnterBackground()
+    @objc func applicationDidEnterBackground()
     {
         // All timers should be invalidate while app is in the background
         // due to fact it could drain device's batery otherwise
@@ -156,7 +156,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         //timer3?.invalidate()
     }
     
-    func applicationWillEnterForeground()
+    @objc func applicationWillEnterForeground()
     {
         // Initialize schedule, notifications and all timers when app enters foreground
         // and prepare adequate GUI
@@ -204,12 +204,12 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         {
             cell.timeLabel.textColor = UIColor(red: 140.0/255.0, green: 142.0/255.0, blue: 4.0/255.0, alpha: 1.0)
             
-            cell.timeLabel.font = UIFont.systemFont(ofSize: cell.timeLabel.font.pointSize, weight: UIFontWeightLight)
+            cell.timeLabel.font = UIFont.systemFont(ofSize: cell.timeLabel.font.pointSize, weight: UIFont.Weight.light)
         }
         else
         {
             cell.timeLabel.textColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-            cell.timeLabel.font = UIFont.systemFont(ofSize: cell.timeLabel.font.pointSize, weight: UIFontWeightThin)
+            cell.timeLabel.font = UIFont.systemFont(ofSize: cell.timeLabel.font.pointSize, weight: UIFont.Weight.thin)
         }
         
         let nextScheduleIndex = (currentScheduleIndex + 1)%6
@@ -382,12 +382,12 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         if currentSchedulePrayerTime == prayerTime
         {
             cell.timeLabel.textColor = UIColor(red: 140.0/255.0, green: 142.0/255.0, blue: 4.0/255.0, alpha: 1.0)
-            cell.timeLabel.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightLight)
+            cell.timeLabel.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.light)
         }
         else
         {
             cell.timeLabel.textColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
-            cell.timeLabel.font = UIFont.systemFont(ofSize: fontSize, weight: UIFontWeightThin)
+            cell.timeLabel.font = UIFont.systemFont(ofSize: fontSize, weight: UIFont.Weight.thin)
         }
         
         let nextScheduleIndex = (currentScheduleIndex + 1)%6
@@ -538,7 +538,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: - Public Functions
     
-    func timeRemainingTick1()
+    @objc func timeRemainingTick1()
     {
         let timeComponents: [String] = tableTimeRemainingLabel!.text!.components(separatedBy: ":")
         var timeInSeconds = Int(timeComponents[0])!*3600 + Int(timeComponents[1])!*60 + Int(timeComponents[2])!
@@ -583,7 +583,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         tableTimeRemainingLabel!.text = components.joined(separator: ":")
     }
     
-    func timeRemainingTick2()
+    @objc func timeRemainingTick2()
     {
         let timeComponents: [String] = collectionTimeRemainingLabel!.text!.components(separatedBy: ":")
         var timeInSeconds = Int(timeComponents[0])!*3600 + Int(timeComponents[1])!*60 + Int(timeComponents[2])!
@@ -654,7 +654,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         self.schedulesCollectionView.reloadItems(at: [indexPath])
     }
     
-    func showScheduleSettings(_ indexPath: IndexPath)
+    @objc func showScheduleSettings(_ indexPath: IndexPath)
     {
         let scheduleTableViewController = storyboard?.instantiateViewController(withIdentifier: "ScheduleTableViewController") as! ScheduleTableViewController
         
@@ -773,7 +773,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         var largestFontSize: CGFloat = 50.0
         
         
-        while timeLabel.text!.size(attributes: [NSFontAttributeName : timeLabel.font.withSize(largestFontSize)]).width > timeLabelFrame.size.width
+        while timeLabel.text!.size(withAttributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font) : timeLabel.font.withSize(largestFontSize)])).width > timeLabelFrame.size.width
         {
             largestFontSize -= 1
         }
@@ -908,7 +908,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
             
             let ringtoneFileName = userDefaults!.string(forKey: "alarmRingtone")
             let ringtoneFilePath = ringtoneFileName! + ".mp3"
-            content.sound = UNNotificationSound(named: ringtoneFilePath)
+            content.sound = UNNotificationSound(named: convertToUNNotificationSoundName(ringtoneFilePath))
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 20, repeats: false)
             let request = UNNotificationRequest(identifier: "Test Alarm", content: content, trigger: trigger)
@@ -965,7 +965,7 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
         {
             let scheduled = UIApplication.shared.scheduledLocalNotifications
             
-            print("\(scheduled?.count)")
+            print("\(scheduled?.count ?? 0)")
             
             for notif in scheduled!
             {
@@ -977,4 +977,20 @@ class SchedulesViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUNNotificationSoundName(_ input: String) -> UNNotificationSoundName {
+	return UNNotificationSoundName(rawValue: input)
 }

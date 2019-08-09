@@ -23,7 +23,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.estimatedRowHeight = 63.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
         isStandardDhuhrTime = userDefaults!.bool(forKey: "isStandardDhuhrTime")
@@ -34,7 +34,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     {
         super.viewWillAppear(animated)
         
-        if !isMovingToParentViewController
+        if !isMovingToParent
         {
             tableView.reloadData()
         }
@@ -44,7 +44,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     {
         super.viewWillDisappear(animated)
         
-        if isMovingFromParentViewController && thereAreChanges
+        if isMovingFromParent && thereAreChanges
         {
             var shouldReschedule = false
             
@@ -330,7 +330,7 @@ class SettingsTableViewController: UITableViewController, MFMailComposeViewContr
     
     //MARK: - Switch delegates
     
-    func widgetSwitchValueChanged(_ sender: UISwitch)
+    @objc func widgetSwitchValueChanged(_ sender: UISwitch)
     {
         let cell = sender.superview as! SettingsTableViewCell
         if let indexPath = tableView.indexPath(for: cell)

@@ -43,7 +43,7 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
         
         prepareHeadingOrientation()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceDidChangeOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceDidChangeOrientation), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool)
@@ -53,10 +53,10 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
         locationManager.stopUpdatingLocation()
         locationManager.stopUpdatingHeading()
         
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
-    func deviceDidChangeOrientation()
+    @objc func deviceDidChangeOrientation()
     {
         prepareHeadingOrientation()
     }
@@ -80,7 +80,7 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
     {
         if !qiblaNeedleImageView.isHidden
         {
-            let rotateQiblaAngleRadians = CGFloat((qiblaAngleDegrees - newHeading.trueHeading)*M_PI/180.0)
+            let rotateQiblaAngleRadians = CGFloat((qiblaAngleDegrees - newHeading.trueHeading)*Double.pi/180.0)
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.qiblaNeedleImageView.transform = CGAffineTransform(rotationAngle: rotateQiblaAngleRadians)
@@ -130,12 +130,12 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
     
     @IBAction func settingsButtonClick(_ sender: UIButton)
     {
-        let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+        let settingsUrl = URL(string: UIApplication.openSettingsURLString)
         if UIApplication.shared.canOpenURL(settingsUrl!)
         {
             if #available(iOS 10.0, *)
             {
-                UIApplication.shared.open(settingsUrl!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(settingsUrl!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             }
             else
             {
@@ -148,12 +148,12 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
     
     fileprivate func calculateQiblaAngleDegrees(_ currentCoordinates: CLLocationCoordinate2D)
     {
-        let qiblaLatitudeRadians = qiblaCoordinates.latitude*M_PI/180.0
-        let qiblaLongitudeRadians = qiblaCoordinates.longitude*M_PI/180.0
-        let currentLatitudeRadians = currentCoordinates.latitude*M_PI/180.0
-        let currentLongitudeRadians = currentCoordinates.longitude*M_PI/180.0
+        let qiblaLatitudeRadians = qiblaCoordinates.latitude*Double.pi/180.0
+        let qiblaLongitudeRadians = qiblaCoordinates.longitude*Double.pi/180.0
+        let currentLatitudeRadians = currentCoordinates.latitude*Double.pi/180.0
+        let currentLongitudeRadians = currentCoordinates.longitude*Double.pi/180.0
         
-        qiblaAngleDegrees = 180.0/M_PI*atan2(sin(qiblaLongitudeRadians - currentLongitudeRadians), cos(currentLatitudeRadians)*tan(qiblaLatitudeRadians) - sin(currentLatitudeRadians)*cos(qiblaLongitudeRadians - currentLongitudeRadians))
+        qiblaAngleDegrees = 180.0/Double.pi*atan2(sin(qiblaLongitudeRadians - currentLongitudeRadians), cos(currentLatitudeRadians)*tan(qiblaLatitudeRadians) - sin(currentLatitudeRadians)*cos(qiblaLongitudeRadians - currentLongitudeRadians))
     }
     
     fileprivate func prepareHeadingOrientation()
@@ -171,4 +171,9 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
             }
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

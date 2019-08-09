@@ -21,7 +21,7 @@ class DateViewController: UIViewController
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Prikaži", style: .plain, target: self, action: #selector(showBarButtonItemClick(_:)))
     }
     
-    func showBarButtonItemClick(_ sender: UIBarButtonItem)
+    @objc func showBarButtonItemClick(_ sender: UIBarButtonItem)
     {
         let dateScheduleTableViewController = storyboard?.instantiateViewController(withIdentifier: "DateScheduleTableViewController") as! DateScheduleTableViewController
         dateScheduleTableViewController.pickedDate = datePicker.date

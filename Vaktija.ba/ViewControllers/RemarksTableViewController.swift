@@ -17,7 +17,7 @@ class RemarksTableViewController: UITableViewController
         title = "Napomene"
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 220.0
     }
 

@@ -117,7 +117,7 @@ class VBNotification
                                 
                                 if let goodRequest = request
                                 {
-                                    let index = requests.index(of: goodRequest)
+                                    let index = requests.firstIndex(of: goodRequest)
                                     
                                     if !skip
                                     {
@@ -268,7 +268,7 @@ class VBNotification
                                 
                                 if let goodNotification = notification
                                 {
-                                    let index = scheduledLocalNotifications.index(of: goodNotification)
+                                    let index = scheduledLocalNotifications.firstIndex(of: goodNotification)
                                     
                                     if !skip
                                     {
@@ -1546,7 +1546,7 @@ class VBNotification
         
         content.title = alertTitle
         content.body = alertBody
-        content.sound = UNNotificationSound(named: soundName)
+        content.sound = UNNotificationSound(named: convertToUNNotificationSoundName(soundName))
         content.userInfo = userInfo
         
         let fireDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: fireDate)
@@ -1599,4 +1599,9 @@ class VBNotification
         
         print(dateFormatter.string(from: date))*/
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUNNotificationSoundName(_ input: String) -> UNNotificationSoundName {
+	return UNNotificationSoundName(rawValue: input)
 }

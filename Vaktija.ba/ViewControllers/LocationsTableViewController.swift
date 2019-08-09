@@ -42,7 +42,7 @@ class LocationsTableViewController: UITableViewController, UISearchResultsUpdati
         super.viewWillAppear(animated)
         
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
-        let index = locations.index(where: {$0.id == Int64(userDefaults!.integer(forKey: "locationId"))})
+        let index = locations.firstIndex(where: {$0.id == Int64(userDefaults!.integer(forKey: "locationId"))})
         
         if let goodIndex = index
         {
@@ -54,7 +54,7 @@ class LocationsTableViewController: UITableViewController, UISearchResultsUpdati
     {
         super.viewWillDisappear(animated)
         
-        if isMovingFromParentViewController
+        if isMovingFromParent
         {
             thisSearchController?.view.removeFromSuperview()
             
@@ -67,7 +67,7 @@ class LocationsTableViewController: UITableViewController, UISearchResultsUpdati
     
     // MARK: - Navigation Bar Functions
     
-    func searchBarButtonItemClick(_ sender: UIBarButtonItem)
+    @objc func searchBarButtonItemClick(_ sender: UIBarButtonItem)
     {
         if !locations.isEmpty
         {
@@ -128,7 +128,7 @@ class LocationsTableViewController: UITableViewController, UISearchResultsUpdati
             {
                 location = locations[indexPath.row] as VBLocation
                 
-                if let index = locations.index(where: {$0.id == Int64(userDefaults!.integer(forKey: "locationId"))})
+                if let index = locations.firstIndex(where: {$0.id == Int64(userDefaults!.integer(forKey: "locationId"))})
                 {
                     indexPaths.append(IndexPath(row: index, section: 0))
                 }
@@ -146,7 +146,7 @@ class LocationsTableViewController: UITableViewController, UISearchResultsUpdati
                 {
                     location = result as? VBLocation
                     
-                    if let index = searchTableViewController.searchResults.index(where: {$0.id == Int64(userDefaults!.integer(forKey: "locationId"))})
+                    if let index = searchTableViewController.searchResults.firstIndex(where: {$0.id == Int64(userDefaults!.integer(forKey: "locationId"))})
                     {
                         indexPaths.append(IndexPath(row: index, section: 0))
                     }
@@ -176,7 +176,7 @@ class LocationsTableViewController: UITableViewController, UISearchResultsUpdati
         if searchTableViewController.thereAreChanges
         {
             let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
-            if let index = locations.index(where: {$0.id == Int64(userDefaults!.integer(forKey: "locationId"))})
+            if let index = locations.firstIndex(where: {$0.id == Int64(userDefaults!.integer(forKey: "locationId"))})
             {
                 let indexPath = IndexPath(row: index, section: 0)
                 

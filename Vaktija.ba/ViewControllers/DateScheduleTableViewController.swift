@@ -66,17 +66,17 @@ class DateScheduleTableViewController: UITableViewController
     {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidChangeStatusBarOrientation(_:)), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidChangeStatusBarOrientation(_:)), name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
         
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
     }
     
-    func applicationDidChangeStatusBarOrientation(_ notification: Notification)
+    @objc func applicationDidChangeStatusBarOrientation(_ notification: Notification)
     {
         sizeHeaderToFit()
     }
@@ -113,7 +113,7 @@ class DateScheduleTableViewController: UITableViewController
         headerView.setNeedsLayout()
         headerView.layoutIfNeeded()
         
-        let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         var frame = headerView.frame
         frame.size.height = height
         headerView.frame = frame
