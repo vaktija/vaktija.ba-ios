@@ -117,7 +117,7 @@ class VBNotification
                                 
                                 if let goodRequest = request
                                 {
-                                    let index = requests.index(of: goodRequest)
+                                    let index = requests.firstIndex(of: goodRequest)
                                     
                                     if !skip
                                     {
@@ -268,7 +268,7 @@ class VBNotification
                                 
                                 if let goodNotification = notification
                                 {
-                                    let index = scheduledLocalNotifications.index(of: goodNotification)
+                                    let index = scheduledLocalNotifications.firstIndex(of: goodNotification)
                                     
                                     if !skip
                                     {
@@ -1538,7 +1538,7 @@ class VBNotification
         self.printDateToConsole(fireDate)
         
         let alertTitle = (type == "alarm" ? "Alarm" : "Notifikacija") + " za '" + prayer + "'"
-        let alertBody = "'" + prayer + "' nastaje za " + offset + " minuta."
+        let alertBody = "'" + prayer + "' nastupa za " + offset + " minuta."
         let soundName = userDefaults!.string(forKey: type + "Ringtone")! + ".mp3"
         let userInfo = ["alarm_type": type, "prayer": prayer, "prayer_date": prayerDate, "fire_date": fireDate] as [String : Any]
         
@@ -1546,7 +1546,7 @@ class VBNotification
         
         content.title = alertTitle
         content.body = alertBody
-        content.sound = UNNotificationSound(named: soundName)
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(soundName))
         content.userInfo = userInfo
         
         let fireDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: fireDate)
@@ -1571,7 +1571,7 @@ class VBNotification
         self.printDateToConsole(fireDate)
         
         let alertTitle = (type == "alarm" ? "Alarm" : "Notifikacija") + " za '" + prayer + "'"
-        let alertBody = "'" + prayer + "' nastaje za " + offset + " minuta."
+        let alertBody = "'" + prayer + "' nastupa za " + offset + " minuta."
         let soundName = userDefaults!.string(forKey: type + "Ringtone")! + ".mp3"
         let userInfo = ["alarm_type": type, "prayer": prayer, "prayer_date": prayerDate, "fire_date": fireDate] as [String : Any]
         

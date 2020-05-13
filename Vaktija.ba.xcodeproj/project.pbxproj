@@ -19,12 +19,10 @@
 		811830791C8719FA00C6FEF6 /* offset.csv in Resources */ = {isa = PBXBuildFile; fileRef = 811830761C8719FA00C6FEF6 /* offset.csv */; };
 		8118307A1C8719FA00C6FEF6 /* schedule.csv in Resources */ = {isa = PBXBuildFile; fileRef = 811830771C8719FA00C6FEF6 /* schedule.csv */; };
 		811830811C873A6600C6FEF6 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811830801C873A6600C6FEF6 /* ScheduleTableViewCell.swift */; };
-		812F40121CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F40111CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift */; };
 		81360C571CA416CD0077D27F /* SchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81360C561CA416CD0077D27F /* SchedulesViewController.swift */; };
 		8152F68E1CC9D66600B72B98 /* silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8152F68D1CC9D66600B72B98 /* silence.wav */; };
 		815BA2CC1CC2CFD400E3156D /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815BA2CB1CC2CFD400E3156D /* AboutViewController.swift */; };
 		815CFAEB1D90FBB90031B8A0 /* TimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815CFAEA1D90FBB90031B8A0 /* TimesTableViewController.swift */; };
-		8161421D1CD8B7BF00142066 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8161421C1CD8B7BF00142066 /* SearchTableViewController.swift */; };
 		816847B41CBA4F4A009AE494 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816847B31CBA4F4A009AE494 /* DateViewController.swift */; };
 		816847B61CBA52E7009AE494 /* DateScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816847B51CBA52E7009AE494 /* DateScheduleTableViewController.swift */; };
 		816EA2181CB396BB00481FCA /* schedule_original.csv in Resources */ = {isa = PBXBuildFile; fileRef = 816EA2171CB396BB00481FCA /* schedule_original.csv */; };
@@ -55,13 +53,31 @@
 		81D7A4701C898DF00082B0CC /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A46F1C898DF00082B0CC /* LocationsTableViewController.swift */; };
 		81D7A4721C898E050082B0CC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A4711C898E050082B0CC /* SettingsTableViewController.swift */; };
 		81D7A4741C89E1DA0082B0CC /* RingtonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D7A4731C89E1DA0082B0CC /* RingtonesTableViewController.swift */; };
-		81DD18FF1C915A10001117E1 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DD18FE1C915A10001117E1 /* MenuTableViewController.swift */; };
 		81E8C0931C861EB80023B9CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E8C0921C861EB80023B9CE /* AppDelegate.swift */; };
 		81E8C0981C861EB80023B9CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E8C0961C861EB80023B9CE /* Main.storyboard */; };
 		81E8C09B1C861EB80023B9CE /* Vaktija_ba.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81E8C0991C861EB80023B9CE /* Vaktija_ba.xcdatamodeld */; };
 		81E8C09D1C861EB80023B9CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E8C09C1C861EB80023B9CE /* Assets.xcassets */; };
 		81E8C0A01C861EB80023B9CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E8C09E1C861EB80023B9CE /* LaunchScreen.storyboard */; };
 		81EF3EB01C8EBCD70095A57D /* VBPrayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EF3EAF1C8EBCD70095A57D /* VBPrayer.swift */; };
+		840D1E6524608A7000099AE2 /* CompactPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D1E6424608A7000099AE2 /* CompactPrayerTableViewCell.swift */; };
+		840D1E6724608A9700099AE2 /* ExpandedPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D1E6624608A9700099AE2 /* ExpandedPrayerTableViewCell.swift */; };
+		840D1E692460B3BD00099AE2 /* WidgetPrayerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D1E682460B3BD00099AE2 /* WidgetPrayerHeaderView.swift */; };
+		840D1E6B2460B3D400099AE2 /* WidgetPrayerHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840D1E6A2460B3D400099AE2 /* WidgetPrayerHeaderView.xib */; };
+		840D1E6D2460B9C100099AE2 /* WidgetPrayerFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840D1E6C2460B9C100099AE2 /* WidgetPrayerFooterView.xib */; };
+		840D1E6F2460B9DB00099AE2 /* WidgetPrayerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D1E6E2460B9DB00099AE2 /* WidgetPrayerFooterView.swift */; };
+		84213F91244C231200E1724F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84213F90244C231200E1724F /* UIImage.swift */; };
+		84213F92244C231200E1724F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84213F90244C231200E1724F /* UIImage.swift */; };
+		84213F96244C255B00E1724F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84213F95244C255B00E1724F /* MainTabBarController.swift */; };
+		8428CBA32448520200E394DA /* TableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428CBA22448520200E394DA /* TableViewHeaderView.swift */; };
+		8428CBA52448523A00E394DA /* TableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8428CBA42448523A00E394DA /* TableViewHeaderView.xib */; };
+		844C2780244CC6F300B20D5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C277F244CC6F300B20D5F /* String.swift */; };
+		844C2781244CC6F300B20D5F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C277F244CC6F300B20D5F /* String.swift */; };
+		845A0086244D86A800D81182 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A0085244D86A800D81182 /* MenuTableViewController.swift */; };
+		8483A5E92446ECE000D32B1E /* app_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483A5E82446ECE000D32B1E /* app_thumbnail.png */; };
+		84E9D65C244B8456007CA63E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9D65B244B8455007CA63E /* UIColor.swift */; };
+		84E9D65D244B8456007CA63E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9D65B244B8455007CA63E /* UIColor.swift */; };
+		84E9D660244B8539007CA63E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9D65E244B8539007CA63E /* UIFont.swift */; };
+		84E9D661244B8539007CA63E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E9D65E244B8539007CA63E /* UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,13 +117,11 @@
 		811830761C8719FA00C6FEF6 /* offset.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = offset.csv; sourceTree = "<group>"; };
 		811830771C8719FA00C6FEF6 /* schedule.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schedule.csv; sourceTree = "<group>"; };
 		811830801C873A6600C6FEF6 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
-		812F40111CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
 		812FB6FB1C900566003B0F4D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		81360C561CA416CD0077D27F /* SchedulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesViewController.swift; sourceTree = "<group>"; };
 		8152F68D1CC9D66600B72B98 /* silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = silence.wav; sourceTree = "<group>"; };
 		815BA2CB1CC2CFD400E3156D /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		815CFAEA1D90FBB90031B8A0 /* TimesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimesTableViewController.swift; sourceTree = "<group>"; };
-		8161421C1CD8B7BF00142066 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		816847B31CBA4F4A009AE494 /* DateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		816847B51CBA52E7009AE494 /* DateScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateScheduleTableViewController.swift; sourceTree = "<group>"; };
 		816EA2171CB396BB00481FCA /* schedule_original.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schedule_original.csv; sourceTree = "<group>"; };
@@ -131,7 +145,6 @@
 		81D7A46F1C898DF00082B0CC /* LocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
 		81D7A4711C898E050082B0CC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		81D7A4731C89E1DA0082B0CC /* RingtonesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingtonesTableViewController.swift; sourceTree = "<group>"; };
-		81DD18FE1C915A10001117E1 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		81E8C08F1C861EB80023B9CE /* Vaktija.ba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vaktija.ba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E8C0921C861EB80023B9CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81E8C0971C861EB80023B9CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +153,21 @@
 		81E8C09F1C861EB80023B9CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E8C0A11C861EB80023B9CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81EF3EAF1C8EBCD70095A57D /* VBPrayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBPrayer.swift; sourceTree = "<group>"; };
+		840D1E6424608A7000099AE2 /* CompactPrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactPrayerTableViewCell.swift; sourceTree = "<group>"; };
+		840D1E6624608A9700099AE2 /* ExpandedPrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedPrayerTableViewCell.swift; sourceTree = "<group>"; };
+		840D1E682460B3BD00099AE2 /* WidgetPrayerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPrayerHeaderView.swift; sourceTree = "<group>"; };
+		840D1E6A2460B3D400099AE2 /* WidgetPrayerHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetPrayerHeaderView.xib; sourceTree = "<group>"; };
+		840D1E6C2460B9C100099AE2 /* WidgetPrayerFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetPrayerFooterView.xib; sourceTree = "<group>"; };
+		840D1E6E2460B9DB00099AE2 /* WidgetPrayerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPrayerFooterView.swift; sourceTree = "<group>"; };
+		84213F90244C231200E1724F /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		84213F95244C255B00E1724F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		8428CBA22448520200E394DA /* TableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderView.swift; sourceTree = "<group>"; };
+		8428CBA42448523A00E394DA /* TableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewHeaderView.xib; sourceTree = "<group>"; };
+		844C277F244CC6F300B20D5F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		845A0085244D86A800D81182 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		8483A5E82446ECE000D32B1E /* app_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_thumbnail.png; sourceTree = "<group>"; };
+		84E9D65B244B8455007CA63E /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		84E9D65E244B8539007CA63E /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,17 +207,8 @@
 				81AF42441C8AB92F00B0B9C0 /* SettingsTableViewCell.swift */,
 				81C223E91C8C26C000B863DD /* AlarmTableViewCell.swift */,
 				81C223ED1C8C2FA000B863DD /* NotificationTableViewCell.swift */,
-				81747ABC1CBFDCFD00F1D225 /* DateScheduleTableHeaderView.swift */,
 			);
 			path = TableViewCells;
-			sourceTree = "<group>";
-		};
-		812F40101CA95B69005EDE56 /* CollectionViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				812F40111CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift */,
-			);
-			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		812FB6FA1C900566003B0F4D /* Frameworks */ = {
@@ -211,10 +230,12 @@
 		819F94C21DBCD94E00735B6B /* VaktijaWidget */ = {
 			isa = PBXGroup;
 			children = (
-				819F94CF1DBCD98B00735B6B /* VaktijaWidget.entitlements */,
 				819F94C31DBCD94E00735B6B /* TodayViewController.swift */,
+				840D1E632460868A00099AE2 /* Cells */,
+				842431BD245E118C003E4973 /* Views */,
 				819F94C51DBCD94E00735B6B /* MainInterface.storyboard */,
 				819F94C81DBCD94E00735B6B /* Info.plist */,
+				819F94CF1DBCD98B00735B6B /* VaktijaWidget.entitlements */,
 			);
 			path = VaktijaWidget;
 			sourceTree = "<group>";
@@ -242,6 +263,7 @@
 		81AF42481C8AF39500B0B9C0 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8483A5E82446ECE000D32B1E /* app_thumbnail.png */,
 				817194C61CC09ACD003F0AE5 /* iTunesArtwork.png */,
 				817194C71CC09ACD003F0AE5 /* iTunesArtwork@2x.png */,
 			);
@@ -280,6 +302,7 @@
 				81E8C09E1C861EB80023B9CE /* LaunchScreen.storyboard */,
 				81E8C0A11C861EB80023B9CE /* Info.plist */,
 				8171016A1CA6B8F50072C0A3 /* Vaktija.ba.entitlements */,
+				840C7F84244AB01700FA0A6B /* Extensions */,
 				811830741C87199500C6FEF6 /* Resources */,
 			);
 			path = Vaktija.ba;
@@ -288,21 +311,18 @@
 		81E8C0A71C86229C0023B9CE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84213F95244C255B00E1724F /* MainTabBarController.swift */,
 				81360C561CA416CD0077D27F /* SchedulesViewController.swift */,
 				81C223E71C8C1D1900B863DD /* ScheduleTableViewController.swift */,
 				81D7A46F1C898DF00082B0CC /* LocationsTableViewController.swift */,
-				8161421C1CD8B7BF00142066 /* SearchTableViewController.swift */,
-				81DD18FE1C915A10001117E1 /* MenuTableViewController.swift */,
 				815CFAEA1D90FBB90031B8A0 /* TimesTableViewController.swift */,
 				81AA5A6C1CC39DDE002682D5 /* QiblaViewController.swift */,
 				816847B31CBA4F4A009AE494 /* DateViewController.swift */,
 				816847B51CBA52E7009AE494 /* DateScheduleTableViewController.swift */,
 				81D7A4711C898E050082B0CC /* SettingsTableViewController.swift */,
-				81D7A4731C89E1DA0082B0CC /* RingtonesTableViewController.swift */,
-				818A604C1CE321EB003E546B /* RemarksTableViewController.swift */,
-				815BA2CB1CC2CFD400E3156D /* AboutViewController.swift */,
-				812F40101CA95B69005EDE56 /* CollectionViewCells */,
 				8118307F1C873A1D00C6FEF6 /* TableViewCells */,
+				8428CBA12448515C00E394DA /* Views */,
+				845A0087244D86C100D81182 /* Deprecated */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -328,6 +348,58 @@
 				81AD01831CA7C6F900E9ACD4 /* VBCoreDataStack.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		840C7F84244AB01700FA0A6B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84213F90244C231200E1724F /* UIImage.swift */,
+				84E9D65E244B8539007CA63E /* UIFont.swift */,
+				84E9D65B244B8455007CA63E /* UIColor.swift */,
+				844C277F244CC6F300B20D5F /* String.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		840D1E632460868A00099AE2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				840D1E6424608A7000099AE2 /* CompactPrayerTableViewCell.swift */,
+				840D1E6624608A9700099AE2 /* ExpandedPrayerTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		842431BD245E118C003E4973 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				840D1E682460B3BD00099AE2 /* WidgetPrayerHeaderView.swift */,
+				840D1E6A2460B3D400099AE2 /* WidgetPrayerHeaderView.xib */,
+				840D1E6E2460B9DB00099AE2 /* WidgetPrayerFooterView.swift */,
+				840D1E6C2460B9C100099AE2 /* WidgetPrayerFooterView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8428CBA12448515C00E394DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81747ABC1CBFDCFD00F1D225 /* DateScheduleTableHeaderView.swift */,
+				8428CBA22448520200E394DA /* TableViewHeaderView.swift */,
+				8428CBA42448523A00E394DA /* TableViewHeaderView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		845A0087244D86C100D81182 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				845A0085244D86A800D81182 /* MenuTableViewController.swift */,
+				81D7A4731C89E1DA0082B0CC /* RingtonesTableViewController.swift */,
+				818A604C1CE321EB003E546B /* RemarksTableViewController.swift */,
+				815BA2CB1CC2CFD400E3156D /* AboutViewController.swift */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,12 +448,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = Vaktija.ba;
 				TargetAttributes = {
 					819F94BF1DBCD94E00735B6B = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 2B7AC2X622;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -392,7 +465,7 @@
 					81E8C08E1C861EB80023B9CE = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 2B7AC2X622;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -404,7 +477,7 @@
 			};
 			buildConfigurationList = 81E8C08A1C861EB80023B9CE /* Build configuration list for PBXProject "Vaktija.ba" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -426,7 +499,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840D1E6B2460B3D400099AE2 /* WidgetPrayerHeaderView.xib in Resources */,
 				819F94C71DBCD94E00735B6B /* MainInterface.storyboard in Resources */,
+				840D1E6D2460B9C100099AE2 /* WidgetPrayerFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +511,7 @@
 			files = (
 				81E8C0A01C861EB80023B9CE /* LaunchScreen.storyboard in Resources */,
 				8118307A1C8719FA00C6FEF6 /* schedule.csv in Resources */,
+				8428CBA52448523A00E394DA /* TableViewHeaderView.xib in Resources */,
 				81E8C09D1C861EB80023B9CE /* Assets.xcassets in Resources */,
 				816EA2181CB396BB00481FCA /* schedule_original.csv in Resources */,
 				817194C81CC09ACD003F0AE5 /* iTunesArtwork.png in Resources */,
@@ -446,6 +522,7 @@
 				817194C91CC09ACD003F0AE5 /* iTunesArtwork@2x.png in Resources */,
 				811830781C8719FA00C6FEF6 /* locations.csv in Resources */,
 				811830791C8719FA00C6FEF6 /* offset.csv in Resources */,
+				8483A5E92446ECE000D32B1E /* app_thumbnail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,15 +533,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840D1E692460B3BD00099AE2 /* WidgetPrayerHeaderView.swift in Sources */,
+				840D1E6524608A7000099AE2 /* CompactPrayerTableViewCell.swift in Sources */,
 				819F94D31DBD5FA000735B6B /* VBLocation.swift in Sources */,
 				819F94D81DBD60EB00735B6B /* VBSchedule+CoreDataProperties.swift in Sources */,
 				819F94D21DBD5F9C00735B6B /* VBSchedule.swift in Sources */,
 				819F94D91DBD61E900735B6B /* Vaktija_ba.xcdatamodeld in Sources */,
+				844C2781244CC6F300B20D5F /* String.swift in Sources */,
 				819F94D71DBD60E800735B6B /* VBLocation+CoreDataProperties.swift in Sources */,
 				819F94D41DBD5FA300735B6B /* VBOffset.swift in Sources */,
 				819F94D01DBD5F4E00735B6B /* VBPrayer.swift in Sources */,
+				84E9D65D244B8456007CA63E /* UIColor.swift in Sources */,
+				84E9D661244B8539007CA63E /* UIFont.swift in Sources */,
+				840D1E6724608A9700099AE2 /* ExpandedPrayerTableViewCell.swift in Sources */,
 				819F94D61DBD60E400735B6B /* VBOffset+CoreDataProperties.swift in Sources */,
+				840D1E6F2460B9DB00099AE2 /* WidgetPrayerFooterView.swift in Sources */,
 				819F94C41DBCD94E00735B6B /* TodayViewController.swift in Sources */,
+				84213F92244C231200E1724F /* UIImage.swift in Sources */,
 				819F94D51DBD5FB200735B6B /* VBCoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,30 +560,34 @@
 			files = (
 				815CFAEB1D90FBB90031B8A0 /* TimesTableViewController.swift in Sources */,
 				81C223EE1C8C2FA000B863DD /* NotificationTableViewCell.swift in Sources */,
+				84213F96244C255B00E1724F /* MainTabBarController.swift in Sources */,
 				81D7A4701C898DF00082B0CC /* LocationsTableViewController.swift in Sources */,
 				811830701C86E68900C6FEF6 /* VBLocation+CoreDataProperties.swift in Sources */,
-				8161421D1CD8B7BF00142066 /* SearchTableViewController.swift in Sources */,
 				81AA5A6D1CC39DDE002682D5 /* QiblaViewController.swift in Sources */,
 				81E8C09B1C861EB80023B9CE /* Vaktija_ba.xcdatamodeld in Sources */,
 				81C223EA1C8C26C000B863DD /* AlarmTableViewCell.swift in Sources */,
 				81AF42451C8AB92F00B0B9C0 /* SettingsTableViewCell.swift in Sources */,
 				818A604D1CE321EB003E546B /* RemarksTableViewController.swift in Sources */,
+				84213F91244C231200E1724F /* UIImage.swift in Sources */,
 				816847B41CBA4F4A009AE494 /* DateViewController.swift in Sources */,
 				81D7A4741C89E1DA0082B0CC /* RingtonesTableViewController.swift in Sources */,
-				81DD18FF1C915A10001117E1 /* MenuTableViewController.swift in Sources */,
+				8428CBA32448520200E394DA /* TableViewHeaderView.swift in Sources */,
+				844C2780244CC6F300B20D5F /* String.swift in Sources */,
 				81AD01841CA7C6F900E9ACD4 /* VBCoreDataStack.swift in Sources */,
 				81AD01891CA7D0D900E9ACD4 /* VBNotification.swift in Sources */,
+				84E9D660244B8539007CA63E /* UIFont.swift in Sources */,
 				81C223E81C8C1D1900B863DD /* ScheduleTableViewController.swift in Sources */,
 				8118306F1C86E68900C6FEF6 /* VBOffset.swift in Sources */,
 				811830711C86E68900C6FEF6 /* VBLocation.swift in Sources */,
 				8118306E1C86E68900C6FEF6 /* VBOffset+CoreDataProperties.swift in Sources */,
+				84E9D65C244B8456007CA63E /* UIColor.swift in Sources */,
 				811830811C873A6600C6FEF6 /* ScheduleTableViewCell.swift in Sources */,
 				81747ABD1CBFDCFD00F1D225 /* DateScheduleTableHeaderView.swift in Sources */,
 				81D7A4721C898E050082B0CC /* SettingsTableViewController.swift in Sources */,
 				811830731C86E68900C6FEF6 /* VBSchedule.swift in Sources */,
 				816847B61CBA52E7009AE494 /* DateScheduleTableViewController.swift in Sources */,
+				845A0086244D86A800D81182 /* MenuTableViewController.swift in Sources */,
 				811830721C86E68900C6FEF6 /* VBSchedule+CoreDataProperties.swift in Sources */,
-				812F40121CA95BA8005EDE56 /* ScheduleCollectionViewCell.swift in Sources */,
 				81EF3EB01C8EBCD70095A57D /* VBPrayer.swift in Sources */,
 				81E8C0931C861EB80023B9CE /* AppDelegate.swift in Sources */,
 				815BA2CC1CC2CFD400E3156D /* AboutViewController.swift in Sources */,
@@ -553,15 +642,18 @@
 				CODE_SIGN_ENTITLEMENTS = VaktijaWidget/VaktijaWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 2B7AC2X622;
 				INFOPLIST_FILE = VaktijaWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "ba.vaktija.Vaktija-ba.VaktijaWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -574,14 +666,17 @@
 				CODE_SIGN_ENTITLEMENTS = VaktijaWidget/VaktijaWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 2B7AC2X622;
 				INFOPLIST_FILE = VaktijaWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "ba.vaktija.Vaktija-ba.VaktijaWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -589,18 +684,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -636,18 +740,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -683,16 +796,19 @@
 				CODE_SIGN_ENTITLEMENTS = Vaktija.ba/Vaktija.ba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 2B7AC2X622;
 				INFOPLIST_FILE = Vaktija.ba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "ba.vaktija.Vaktija-ba";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -706,14 +822,17 @@
 				CODE_SIGN_ENTITLEMENTS = Vaktija.ba/Vaktija.ba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 2B7AC2X622;
 				INFOPLIST_FILE = Vaktija.ba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "ba.vaktija.Vaktija-ba";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

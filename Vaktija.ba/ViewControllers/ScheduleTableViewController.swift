@@ -5,20 +5,8 @@
 //
 
 import UIKit
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
 
-
-class ScheduleTableViewController: UITableViewController
-{
+class ScheduleTableViewController: UITableViewController {
     var prayerTime: VBPrayer.PrayerTime?
     var prayerSettings: String?
     
@@ -37,7 +25,7 @@ class ScheduleTableViewController: UITableViewController
         if let prayer = userDefaults!.dictionary(forKey: prayerSettings!)
         {
             let prayerTitle = prayer["title"] as? String
-            title = prayerTitle?.capitalized
+			navigationItem.title = prayerTitle?.capitalizedFirst
             
             alarmOn = prayer["alarm"] as! Bool
             notificationOn = prayer["notification"] as! Bool
@@ -45,36 +33,39 @@ class ScheduleTableViewController: UITableViewController
             notificationOffset = prayer["notificationOffset"] as! Int
         }
         
-        if [.Dhuhr, .Jumuah].contains(prayerTime!)
-        {
-            let filteredViewControllers = navigationController?.viewControllers.filter({$0.isKind(of: ScheduleTableViewController.self)})
+        if [.Dhuhr, .Jumuah].contains(prayerTime!) {
+			let filteredViewControllers: [UIViewController] = navigationController?.viewControllers.filter({$0.isKind(of: ScheduleTableViewController.self)}) ?? []
             
-            if filteredViewControllers?.count < 2
-            {
-                if prayerTime == .Dhuhr
-                {
-                    if userDefaults!.bool(forKey: "isJumuahSettingOn")
-                    {
+            if filteredViewControllers.count < 2 {
+                if prayerTime == .Dhuhr {
+                    if userDefaults!.bool(forKey: "isJumuahSettingOn") {
                         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Džuma", style: .plain, target: self, action: #selector(jumuahBarButtonItemClick(_:)))
                     }
-                }
-                else if prayerTime == .Jumuah
-                {
+                } else if prayerTime == .Jumuah {
                     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Podne", style: .plain, target: self, action: #selector(dhuhrBarButtonItemClick(_:)))
                 }
             }
         }
         
         tableView.estimatedRowHeight = 101
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+		
+		view.backgroundColor = UIColor.backgroundColor
+		tableView.backgroundColor = UIColor.backgroundColor
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		navigationController?.setNavigationBarHidden(false, animated: true)
+	}
     
     override func viewWillDisappear(_ animated: Bool)
     {
         super.viewWillDisappear(animated)
         
-        if isMovingFromParentViewController && thereAreChanges
+        if isMovingFromParent && thereAreChanges
         {
             var shouldReschedule = false
             
@@ -116,7 +107,7 @@ class ScheduleTableViewController: UITableViewController
     
     // MARK: - Navigation Bar
     
-    func jumuahBarButtonItemClick(_ sender:UIBarButtonItem)
+    @objc func jumuahBarButtonItemClick(_ sender:UIBarButtonItem)
     {
         let scheduleTableViewController = storyboard?.instantiateViewController(withIdentifier: "ScheduleTableViewController") as! ScheduleTableViewController
         
@@ -126,7 +117,7 @@ class ScheduleTableViewController: UITableViewController
         navigationController?.pushViewController(scheduleTableViewController, animated: true)
     }
     
-    func dhuhrBarButtonItemClick(_ sender:UIBarButtonItem)
+    @objc func dhuhrBarButtonItemClick(_ sender:UIBarButtonItem)
     {
         let scheduleTableViewController = storyboard?.instantiateViewController(withIdentifier: "ScheduleTableViewController") as! ScheduleTableViewController
         
@@ -136,7 +127,7 @@ class ScheduleTableViewController: UITableViewController
         navigationController?.pushViewController(scheduleTableViewController, animated: true)
     }
     
-    func resetBarButtonItemClick(_ sender: UIBarButtonItem)
+    @objc func resetBarButtonItemClick(_ sender: UIBarButtonItem)
     {
         if var rightBarButtonItems = navigationItem.rightBarButtonItems
         {
@@ -231,7 +222,7 @@ class ScheduleTableViewController: UITableViewController
     
     // MARK: - Switch Delegates
     
-    func alarmStateSwitchValueChanged(_ sender: UISwitch)
+    @objc func alarmStateSwitchValueChanged(_ sender: UISwitch)
     {
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
         
@@ -254,7 +245,7 @@ class ScheduleTableViewController: UITableViewController
         }
     }
     
-    func notificationStateSwitchValueChanged(_ sender: UISwitch)
+    @objc func notificationStateSwitchValueChanged(_ sender: UISwitch)
     {
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
         
@@ -279,7 +270,7 @@ class ScheduleTableViewController: UITableViewController
     
     // MARK: - Slider Delegates
     
-    func alarmOffsetSliderValueChanged(_ sender: UISlider)
+    @objc func alarmOffsetSliderValueChanged(_ sender: UISlider)
     {
         let offset = Int(sender.value/100.0)
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
@@ -302,7 +293,7 @@ class ScheduleTableViewController: UITableViewController
         }
     }
     
-    func notificationOffsetSliderValueChanged(_ sender: UISlider)
+    @objc func notificationOffsetSliderValueChanged(_ sender: UISlider)
     {
         let offset = Int(sender.value/100.0)
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
@@ -360,16 +351,12 @@ class ScheduleTableViewController: UITableViewController
         if navigationItem.rightBarButtonItems == nil
         {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Otkaži", style: .plain, target: self, action: #selector(resetBarButtonItemClick(_:)))
-            navigationItem.rightBarButtonItem?.tintColor = UIColor.red
-        }
-        else if navigationItem.rightBarButtonItems?.count == 1
-        {
-            if var rightBarButtonItems = navigationItem.rightBarButtonItems
-            {
-                if rightBarButtonItems.first?.title?.lowercased() == "džuma"
-                {
+			navigationItem.rightBarButtonItem?.tintColor = UIColor.errorColor
+        } else if navigationItem.rightBarButtonItems?.count == 1 {
+            if var rightBarButtonItems = navigationItem.rightBarButtonItems {
+                if rightBarButtonItems.first?.title?.lowercased() == "džuma" {
                     rightBarButtonItems.insert(UIBarButtonItem(title: "Otkaži", style: .plain, target: self, action: #selector(resetBarButtonItemClick(_:))), at: 0)
-                    rightBarButtonItems.first?.tintColor = UIColor.red
+					rightBarButtonItems.first?.tintColor = UIColor.errorColor
                     
                     navigationItem.rightBarButtonItems = rightBarButtonItems
                 }

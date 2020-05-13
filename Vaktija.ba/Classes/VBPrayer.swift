@@ -422,6 +422,59 @@ class VBPrayer
             return (.Isha, 5) // current schedule is isha before midnight
         }
     }
+	
+	/**
+     Gets next prayer time and its index for given day.
+     
+     - parameter schedule: VBSchedule object which contains all prayer times for given day.
+     
+     - returns: Tuple with prayer time and index [0 - 6].
+     */
+    class func nextPrayerTimeAndIndex(forSchedule schedule: VBSchedule) -> (PrayerTime, Int)
+    {
+        let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: Date())
+        let currentTimeStamp = Int(dateComponents.hour!*3600 + dateComponents.minute!*60 + dateComponents.second!)
+        
+        let fajr = getSeconds(fromTime: schedule.fajr!, prayer: .Fajr, schedule:schedule)
+        let sunrise = getSeconds(fromTime: schedule.sunrise!, prayer: .Sunrise, schedule:schedule)
+        let dhuhr = getSeconds(fromTime: schedule.dhuhr!, prayer: .Dhuhr, schedule:schedule)
+        let asr = getSeconds(fromTime: schedule.asr!, prayer: .Asr, schedule:schedule)
+        let maghrib = getSeconds(fromTime: schedule.maghrib!, prayer: .Maghrib, schedule:schedule)
+        let isha = getSeconds(fromTime: schedule.isha!, prayer: .Isha, schedule:schedule)
+        
+        if currentTimeStamp < fajr
+        {
+            return (.Fajr, 0) // current schedule is isha after midnight, next is fajr
+        }
+        else if currentTimeStamp < sunrise
+        {
+            return (.Sunrise, 1) // current schedule is fajr, next is sunrise
+        }
+        else if currentTimeStamp < dhuhr
+        {
+            let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
+            
+            let isJ = userDefaults!.bool(forKey: "isJumuahSettingOn") && isJumuah(Date())
+            
+            return ((isJ ? .Jumuah : .Dhuhr), 2) // current schedule is sunrise, next is dhuhr
+        }
+        else if currentTimeStamp < asr
+        {
+            return (.Asr, 3) // current schedule is dhuhr, next is asr
+        }
+        else if currentTimeStamp < maghrib
+        {
+            return (.Maghrib, 4) // current schedule is asr, next is maghrib
+        }
+        else if currentTimeStamp < isha
+        {
+            return (.Isha, 5) // current schedule is maghrib, next is isha
+        }
+        else
+        {
+            return (.Fajr, 0) // current schedule is isha before midnight, next is fajr
+        }
+    }
     
     /**
      Prepares prayer time for displaying in GUI.
@@ -485,7 +538,7 @@ class VBPrayer
      
      - returns: Array of strings with time components: hours, minutes, seconds; prepared for display in GUI.
      */
-    class func remainingPrayerScheduleTimeComponentsToNextPrayerTime(forSchedule schedule: VBSchedule, prayerTime: PrayerTime) -> [String]
+	class func remainingPrayerScheduleTimeComponentsToNextPrayerTime(forSchedule schedule: VBSchedule, prayerTime: PrayerTime) -> (components: [String], timeInSeconds: Int, formattedText: String)
     {
         if let time = prayerScheduleTime(fromSchedule: schedule, prayerTime: prayerTime)
         {
@@ -524,11 +577,106 @@ class VBPrayer
                 components[2] = "0\(seconds)"
             }
             
-            return components
+            return (components, delta, components.joined(separator: ":"))
         }
         
-        return Array(repeating: "00", count: 3)
+        return (Array(repeating: "00", count: 3), 0, "")
     }
+    
+    /**
+     Determines how much time has left till given prayer.
+     
+     - parameter schedule:   VBSchedule object which contains all prayer times for given day.
+     - parameter prayerTime: Prayer time.
+     
+     - returns: Formatted remaining time for prayer, prepared for display in GUI.
+     */
+	class func displayRemainingPrayerScheduleTimeToPrayerTime(forSchedule schedule: VBSchedule, prayerTime: PrayerTime) -> (timeInSeconds: Int, formattedText: String) {
+        if let time = prayerScheduleTime(fromSchedule: schedule, prayerTime: prayerTime) {
+            let prayerTimeSeconds = getSeconds(fromTime: time, prayer: prayerTime, schedule:schedule)
+            
+            let dateComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: Date())
+            let currentTimeSeconds = dateComponents.hour!*3600 + dateComponents.minute!*60 + dateComponents.second!
+            
+            let delta = prayerTimeSeconds - currentTimeSeconds
+            return (delta, getFormattedTimeString(delta))
+        }
+        return (0, "")
+    }
+	
+	class func getFormattedTimeString(_ time: Int) -> String {
+		let hours = time/3600
+		let minutes = (time%3600)/60
+		let seconds = time%60
+		
+		let hourOrdinals = ["sat", "sata", "sata", "sata", "sati"]
+		let minuteOrdinals = ["minutu", "minute", "minute", "minute", "minuta"]
+		let secondOrdinals = ["sekundu", "sekunde", "sekunde", "sekunde", "sekundi"]
+		
+		func formattedTime(_ time: Int, ordinals: [String]) -> String {
+			guard time != 0 else {
+				return "Ovog momenta"
+			}
+			guard ordinals.count == 5 else {
+				print("The ordinals array must contain 5 elements!")
+				return ""
+			}
+			
+			let digits = [abs(time) % 10, abs(time) % 100]
+			let oPattern = [1, 2, 3, 4]
+			let tPattern = [11, 12, 13, 14, 15, 16, 17, 18, 19]
+			
+			let prefix = time < 0 ? "Prije" : "Za"
+			var suffix = ""
+			if oPattern.contains(digits[0]) && tPattern.contains(digits[1]) == false {
+				suffix = "\(ordinals[digits[0] - 1])"
+			} else {
+				suffix = "\(ordinals[4])"
+			}
+			
+			return "\(prefix) \(abs(time)) \(suffix)"
+		}
+		
+		/*
+			0s					->		Ovog momenta
+			1s		-	44s		->		Prije/Za 1...44 sekundi
+			45s 	-	90s		->		Prije/Za 1 minutu
+			90s		-	44m		->		Prije/Za 2...44 minuta
+			45m		-	89m		->		Prije/Za 1 sat
+			90m		-	24h		-> 		Prije/Za 2...24 sata
+		*/
+		
+		if hours != 0 {
+			var displayHours = hours
+			if abs(hours) == 1 {
+				if abs(minutes) < 30 {
+					displayHours = hours
+				} else {
+					displayHours = 2*hours
+				}
+			}
+			return formattedTime(displayHours, ordinals: hourOrdinals)
+		} else if minutes != 0 {
+			var displayMinutes = minutes
+			if abs(minutes) == 1 {
+				if abs(seconds) < 30 {
+					displayMinutes = minutes
+				} else {
+					displayMinutes = 2*minutes
+				}
+			} else if abs(minutes) >= 45 {
+				return formattedTime(minutes/abs(minutes), ordinals: hourOrdinals)
+			}
+			return formattedTime(displayMinutes, ordinals: minuteOrdinals)
+		} else if seconds != 0 {
+			if abs(seconds) >= 45 {
+				return formattedTime(seconds/abs(seconds), ordinals: minuteOrdinals)
+			}
+			return formattedTime(seconds, ordinals: secondOrdinals)
+		}
+		
+		return "Ovog momenta"
+	}
     
     /**
      Setups skip for alarm or notification.

@@ -17,7 +17,7 @@ class DateScheduleTableViewController: UITableViewController
     {
         super.viewDidLoad()
         
-        title = "Namaska vremena"
+		navigationItem.title = "Namaska vremena"
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
@@ -47,38 +47,20 @@ class DateScheduleTableViewController: UITableViewController
         dateFormatter.dateFormat = "EEEE, dd. MMMM yyyy."
         dateFormatter.locale = locale
         
-        dateString += dateFormatter.string(from: pickedDate) + " god.\n"
+        dateString += dateFormatter.string(from: pickedDate) + "\n"
         
-        let hijriCalendar = Calendar(identifier: Calendar.Identifier.islamic)
+		let hijriCalendar = Calendar(identifier: Calendar.Identifier.islamicUmmAlQura)
         let hijriDateComponents = hijriCalendar.dateComponents([.day, .month, .year], from: pickedDate)
         
-        dateString += (hijriDateComponents.day! < 10 ? "0" : "") + String(describing: hijriDateComponents.day!) + ". " + hijriMonths[hijriDateComponents.month!] + " " + String(describing: hijriDateComponents.year!) + ". h."
+        dateString += (hijriDateComponents.day! < 10 ? "0" : "") + String(describing: hijriDateComponents.day!) + ". " + hijriMonths[hijriDateComponents.month!] + " " + String(describing: hijriDateComponents.year!) + "."
         
         let headerView = tableView.tableHeaderView as! DateScheduleTableHeaderView
-        headerView.headerLabel?.text = dateString
-        
+		headerView.headerLabel?.text = dateString.lowercased()
         tableView.tableHeaderView = headerView
-        
         sizeHeaderToFit()
-    }
-    
-    override func viewWillAppear(_ animated: Bool)
-    {
-        super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidChangeStatusBarOrientation(_:)), name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool)
-    {
-        super.viewWillDisappear(animated)
-        
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
-    }
-    
-    func applicationDidChangeStatusBarOrientation(_ notification: Notification)
-    {
-        sizeHeaderToFit()
+		
+		view.backgroundColor = UIColor.backgroundColor
+		tableView.backgroundColor = UIColor.backgroundColor
     }
 
     // MARK: - Table view data source
@@ -100,8 +82,11 @@ class DateScheduleTableViewController: UITableViewController
         
         let prayerTime = VBPrayer.prayerTimeForIndex(indexPath.row, schedule:schedule!)
         
-        cell.textLabel!.text = VBPrayer.displayPrayerScheduleTime(forSchedule: schedule!, prayerTime: prayerTime)
-        cell.detailTextLabel!.text = VBPrayer.prayerName(forPrayerTime: prayerTime)
+		cell.backgroundColor = UIColor.backgroundColor
+        cell.textLabel!.text = VBPrayer.prayerName(forPrayerTime: prayerTime).capitalizedFirst
+		cell.textLabel?.textColor = UIColor.titleColor
+		cell.detailTextLabel!.text = VBPrayer.displayPrayerScheduleTime(forSchedule: schedule!, prayerTime: prayerTime)
+		cell.detailTextLabel?.textColor = UIColor.subtitleColor
 
         return cell
     }
@@ -113,7 +98,7 @@ class DateScheduleTableViewController: UITableViewController
         headerView.setNeedsLayout()
         headerView.layoutIfNeeded()
         
-        let height = headerView.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         var frame = headerView.frame
         frame.size.height = height
         headerView.frame = frame

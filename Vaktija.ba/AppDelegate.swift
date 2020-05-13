@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     // MARK: - Application's Life Cycle
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
         // Override point for customization after application launch.
         
@@ -27,14 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         if let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
         {
+			let cacheVersion = userDefaults.object(forKey: "cacheVersion") as? NSNumber ?? NSNumber(value: 1 as Int)
+			if cacheVersion.intValue == 1
+			{
+				userDefaults.set(2, forKey: "cacheVersion")
+				preloadData()
+			}
+			
             let settingsVersion = userDefaults.object(forKey: "settingsVersion") as? NSNumber ?? NSNumber(value: 0 as Int)
             if settingsVersion.intValue == 0
             {
-                if settingsVersion.intValue == 0
-                {
-                    preloadData()
-                }
-                
                 //Setting up default settings of the app
                 userDefaults.set(1, forKey: "settingsVersion")
                 userDefaults.set(107, forKey: "locationId")
@@ -61,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 userDefaults.set(["title": "jacija", "alarm": false, "alarmOffset": 30, "skipAlarm": false, "skipAlarmDate": Date(), "notification": true, "notificationOffset": 15, "skipNotification": false, "skipNotificationDate": Date()], forKey: "ishaSettings")
             }
         }
+		
+		prepareAppSkin()
         
         return true
     }
@@ -107,6 +111,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     {
         completionHandler()
     }
+	
+	@available(iOS, deprecated: 10)
+	func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+		VBNotification().scheduleLocalNotifications(true)
+	}
 
     @available(iOS, deprecated: 10)
     func application(_ application: UIApplication, didReceive notification: UILocalNotification)
@@ -120,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 var soundID: SystemSoundID = 0
                 let soundName = userDefaults.string(forKey: type + "Ringtone")!
                 
-                if let ref: CFURL = CFBundleCopyResourceURL(CFBundleGetMainBundle(), soundName as CFString!, "mp3" as CFString!, nil)
+                if let ref: CFURL = CFBundleCopyResourceURL(CFBundleGetMainBundle(), soundName as CFString, "mp3" as CFString, nil)
                 {
                     AudioServicesCreateSystemSoundID(ref, &soundID)
                     AudioServicesPlaySystemSound(soundID)
@@ -187,31 +196,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         if line.range(of: "\"") != nil
                         {
                             var textToScan:String = line
-                            var value:NSString?
+                            var value: String?
+							var nsValue: NSString?
                             var textScanner:Scanner = Scanner(string: textToScan)
                             while textScanner.string != ""
                             {
-                                if (textScanner.string as NSString).substring(to: 1) == "\""
-                                {
-                                    textScanner.scanLocation += 1
-                                    textScanner.scanUpTo("\"", into: &value)
-                                    textScanner.scanLocation += 1
-                                }
-                                else
-                                {
-                                    textScanner.scanUpTo(delimiter, into: &value)
+								let firstIndex = textScanner.string.index(after: textScanner.string.startIndex)
+								let substring = textScanner.string[...firstIndex]
+                                if String(substring) == "\"" {
+									if #available(iOS 13.0, *) {
+										var currentIndex = textScanner.string.index(after: textScanner.currentIndex)
+										textScanner.currentIndex = currentIndex
+										value = textScanner.scanUpToString("\"")
+										currentIndex = textScanner.string.index(after: textScanner.currentIndex)
+										textScanner.currentIndex = currentIndex
+									} else {
+										textScanner.scanLocation += 1
+										textScanner.scanUpTo("\"", into: &nsValue)
+										textScanner.scanLocation += 1
+									}
+                                } else {
+									if #available(iOS 13.0, *) {
+										value = textScanner.scanUpToString(delimiter)
+									} else {
+										textScanner.scanUpTo(delimiter, into: &nsValue)
+									}
                                 }
                                 
                                 // Store the value into the values array
-                                values.append(value as! String)
+								if let value = value {
+									values.append(value)
+								} else if let value = nsValue {
+									values.append(value as String)
+								}
                                 
                                 // Retrieve the unscanned remainder of the string
-                                if textScanner.scanLocation < textScanner.string.characters.count
-                                {
-                                    textToScan = (textScanner.string as NSString).substring(from: textScanner.scanLocation + 1)
-                                }
-                                else
-                                {
+								var hasMoreToScan: Bool = false
+								if #available(iOS 13.0, *) {
+									hasMoreToScan = textScanner.currentIndex < textScanner.string.endIndex
+								} else {
+									hasMoreToScan = textScanner.scanLocation < textScanner.string.count
+								}
+								
+								if hasMoreToScan {
+									if #available(iOS 13.0, *) {
+										let currentIndex = textScanner.string.index(after: textScanner.currentIndex)
+										textToScan = String(textScanner.string[currentIndex...])
+									} else {
+										textToScan = (textScanner.string as NSString).substring(from: textScanner.scanLocation + 1)
+									}
+                                } else {
                                     textToScan = ""
                                 }
                                 textScanner = Scanner(string: textToScan)
@@ -380,4 +414,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
+	
+	fileprivate func prepareAppSkin() {
+		// Tab Bar
+		if #available(iOS 10.0, *) {
+			UITabBar.appearance().unselectedItemTintColor = UIColor.subtitleColor
+		} else {
+			// Fallback on earlier versions
+		}
+		UITabBar.appearance().tintColor = UIColor.titleColor
+		UITabBar.appearance().shadowImage = UIImage()
+		UITabBar.appearance().backgroundImage = UIImage()
+		UITabBar.appearance().clipsToBounds = true
+		UITabBar.appearance().barTintColor = UIColor.backgroundColor
+		UITabBar.appearance().isTranslucent = false
+		
+		// Navigation Bar
+		UINavigationBar.appearance().isTranslucent = false
+		UINavigationBar.appearance().shadowImage = UIImage()
+		UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+		UINavigationBar.appearance().barTintColor = UIColor.backgroundColor
+		let navigationBarTitleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.titleColor as Any, .font: UIFont(font: .bold, size: 17.0) as Any]
+		UINavigationBar.appearance().titleTextAttributes = navigationBarTitleAttributes
+		let navigationBarButtonItemAttributes: [NSAttributedString.Key: Any] = [.font: UIFont(font: .regular, size: 17.0) as Any, .foregroundColor: UIColor.actionColor as Any]
+		UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes(navigationBarButtonItemAttributes, for: .normal)
+		
+		// Search Bar
+		let searchBarTextAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.titleColor as Any, .font: UIFont(font: .regular, size: 17.0) as Any]
+		UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = searchBarTextAttributes
+		UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Otkaži"
+		UISearchBar.appearance().tintColor = UIColor.actionColor
+		let searchBarButtonItemTitleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.actionColor as Any, .font: UIFont(font: .regular, size: 17.0) as Any]
+		UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes(searchBarButtonItemTitleAttributes, for: .normal)
+	}
 }

@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -9,117 +12,139 @@
         <scene sceneID="cwh-vc-ff4">
             <objects>
                 <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="VaktijaWidget" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
-                        <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="218"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="55f-S4-JKC" userLabel="Header Stack View">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ikindija nastaje za 00h 35m." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPS-OJ-yZ4" userLabel="Next Prayer Label">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-ZZ-yl3" userLabel="Show More Button">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Show More"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJ1-Iy-SpT">
+                                <rect key="frame" x="20" y="5" width="280" height="198"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CompactPrayerTableViewCell" id="lou-vf-OMT" userLabel="Compact Prayer Table View Cell" customClass="CompactPrayerTableViewCell" customModule="VaktijaWidget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lou-vf-OMT" id="OMx-qY-fEm">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mlg-Qs-mfa">
+                                                    <rect key="frame" x="10.333333333333336" y="12.666666666666666" width="121.33333333333331" height="18.666666666666671"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Izl. sunca" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keq-RJ-fht" userLabel="Previous Name Label">
+                                                            <rect key="frame" x="0.0" y="0.0" width="72.333333333333329" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="06:35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ge-g8-AiA" userLabel="Previous Time Label">
+                                                            <rect key="frame" x="80.333333333333343" y="0.0" width="41" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4z-Df-oLP" userLabel="Separator View">
+                                                    <rect key="frame" x="139.66666666666666" y="13.666666666666664" width="1" height="17"/>
+                                                    <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="1" id="PjN-yP-RoH"/>
+                                                        <constraint firstAttribute="height" constant="17" id="ro0-wE-Ofp"/>
+                                                    </constraints>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eSN-0z-UWs">
+                                                    <rect key="frame" x="148.66666666666666" y="12.666666666666666" width="98" height="18.666666666666671"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="13:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ig-MG-q2a" userLabel="Next Time Label">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Podne" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGa-F9-NtN" userLabel="Next Name Label">
+                                                            <rect key="frame" x="49" y="0.0" width="49" height="18.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="z4z-Df-oLP" firstAttribute="leading" secondItem="mlg-Qs-mfa" secondAttribute="trailing" constant="8" id="6PC-DV-DLy"/>
+                                                <constraint firstItem="z4z-Df-oLP" firstAttribute="centerX" secondItem="OMx-qY-fEm" secondAttribute="centerX" id="Bqz-d4-oSE"/>
+                                                <constraint firstItem="z4z-Df-oLP" firstAttribute="centerY" secondItem="OMx-qY-fEm" secondAttribute="centerY" id="Erl-gD-qP6"/>
+                                                <constraint firstItem="eSN-0z-UWs" firstAttribute="centerY" secondItem="OMx-qY-fEm" secondAttribute="centerY" id="hhd-yy-ubF"/>
+                                                <constraint firstItem="eSN-0z-UWs" firstAttribute="leading" secondItem="z4z-Df-oLP" secondAttribute="trailing" constant="8" id="zN0-8M-qEq"/>
+                                                <constraint firstItem="mlg-Qs-mfa" firstAttribute="centerY" secondItem="OMx-qY-fEm" secondAttribute="centerY" id="zuU-XI-2D5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                         <connections>
-                                            <action selector="showMoreButtonClick:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="A13-3C-vgb"/>
+                                            <outlet property="nextNameLabel" destination="LGa-F9-NtN" id="hWy-9u-Hr7"/>
+                                            <outlet property="nextTimeLabel" destination="8ig-MG-q2a" id="JwP-3V-PfE"/>
+                                            <outlet property="previousNameLabel" destination="keq-RJ-fht" id="gu3-qR-7cC"/>
+                                            <outlet property="previousTimeLabel" destination="4Ge-g8-AiA" id="D6b-a3-rlf"/>
+                                            <outlet property="separatorView" destination="z4z-Df-oLP" id="SGe-0r-LoM"/>
                                         </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LbK-aI-N0m" userLabel="Min Content Stack View">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Izl. sunca 06:55" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keq-RJ-fht" userLabel="Previous Prayer Time Label">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4z-Df-oLP" userLabel="Separator View">
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="1" id="PjN-yP-RoH"/>
-                                            <constraint firstAttribute="height" constant="17" id="ro0-wE-Ofp"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00 Podne" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGa-F9-NtN" userLabel="Next Prayer Time Label">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="z4z-Df-oLP" firstAttribute="centerX" secondItem="LbK-aI-N0m" secondAttribute="centerX" id="SoL-CY-Ygg"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YZs-gk-0Ia" userLabel="Max Content Stack View">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:29 - Zora" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RS3-RB-A24" userLabel="Fajr Label">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:05 - Izlazak sunca" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SJ-Wd-iTz" userLabel="Sunrise Label">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00 - Podne" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lV7-rq-ESG" userLabel="Dhuhr Label">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:23 - Ikindija" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFz-6t-Kmy" userLabel="Asr Label">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:57 - Akšam" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rg-Z0-ccy" userLabel="Maghrib Label">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19:22 - Jacija" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12V-tY-SfQ" userLabel="Isha Label">
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xUp-tq-pnT" userLabel="Footer Stack View">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22. muharrem 1438. h." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLG-Fo-Xx7" userLabel="Date Label">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarajevo" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMQ-bK-beq" userLabel="Location Label">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExpandedPrayerTableViewCell" id="p4T-KA-lUV" userLabel="Expanded Prayer Table View Cell" customClass="ExpandedPrayerTableViewCell" customModule="VaktijaWidget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p4T-KA-lUV" id="DyJ-ZN-Sep">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQd-OD-edr" userLabel="Time Label">
+                                                    <rect key="frame" x="11.333333333333332" y="13.333333333333334" width="38.666666666666671" height="17.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pi4-Fk-Rog" userLabel="Dash Label">
+                                                    <rect key="frame" x="58" y="13.333333333333334" width="5" height="17.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po3-dV-zDL" userLabel="Prayer Label">
+                                                    <rect key="frame" x="71" y="13.333333333333334" width="39.333333333333343" height="17.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pi4-Fk-Rog" firstAttribute="centerY" secondItem="DyJ-ZN-Sep" secondAttribute="centerY" id="NKB-3R-eXu"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="po3-dV-zDL" secondAttribute="trailing" id="bUX-w9-rdO"/>
+                                                <constraint firstItem="po3-dV-zDL" firstAttribute="leading" secondItem="pi4-Fk-Rog" secondAttribute="trailing" constant="8" id="bh0-U6-1TF"/>
+                                                <constraint firstItem="pi4-Fk-Rog" firstAttribute="leading" secondItem="zQd-OD-edr" secondAttribute="trailing" constant="8" id="ecu-Jd-eQb"/>
+                                                <constraint firstItem="zQd-OD-edr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DyJ-ZN-Sep" secondAttribute="leading" id="i7E-3Y-a7a"/>
+                                                <constraint firstItem="po3-dV-zDL" firstAttribute="centerY" secondItem="DyJ-ZN-Sep" secondAttribute="centerY" id="utg-C0-Ech"/>
+                                                <constraint firstItem="pi4-Fk-Rog" firstAttribute="leading" secondItem="DyJ-ZN-Sep" secondAttribute="leading" constant="58" id="v6y-C1-9dY"/>
+                                                <constraint firstItem="zQd-OD-edr" firstAttribute="centerY" secondItem="DyJ-ZN-Sep" secondAttribute="centerY" id="xGb-wp-kYb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dashLabel" destination="pi4-Fk-Rog" id="qSi-Ug-A9Q"/>
+                                            <outlet property="prayerLabel" destination="po3-dV-zDL" id="16H-JC-yYj"/>
+                                            <outlet property="timeLabel" destination="zQd-OD-edr" id="CAQ-No-Ue0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="M4Y-Lb-cyx" id="dAx-7B-cl5"/>
+                                    <outlet property="delegate" destination="M4Y-Lb-cyx" id="gL6-Tp-uSy"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="YZs-gk-0Ia" firstAttribute="top" secondItem="55f-S4-JKC" secondAttribute="bottom" constant="10" id="BVg-If-gVJ"/>
-                            <constraint firstItem="55f-S4-JKC" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="16" id="DF7-8a-B0f"/>
-                            <constraint firstItem="LbK-aI-N0m" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="L3q-BS-bbd"/>
-                            <constraint firstItem="YZs-gk-0Ia" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="20" id="MPg-7U-rW8"/>
-                            <constraint firstItem="55f-S4-JKC" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="10" id="RKn-xH-1dD"/>
-                            <constraint firstAttribute="trailing" secondItem="xUp-tq-pnT" secondAttribute="trailing" constant="16" id="aAS-cH-ig0"/>
-                            <constraint firstAttribute="trailing" secondItem="YZs-gk-0Ia" secondAttribute="trailing" constant="20" id="c5F-oS-YgA"/>
-                            <constraint firstItem="xUp-tq-pnT" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="16" id="hZJ-l2-a0M"/>
-                            <constraint firstAttribute="trailing" secondItem="55f-S4-JKC" secondAttribute="trailing" constant="16" id="tBe-ec-wI7"/>
-                            <constraint firstItem="LbK-aI-N0m" firstAttribute="top" secondItem="55f-S4-JKC" secondAttribute="bottom" constant="10" id="w66-Dl-N2l"/>
-                            <constraint firstItem="xUp-tq-pnT" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="83" id="xTH-YI-CVf"/>
+                            <constraint firstItem="fZX-hE-Rbt" firstAttribute="bottom" secondItem="KJ1-Iy-SpT" secondAttribute="bottom" constant="15" id="13U-Ei-6GY"/>
+                            <constraint firstItem="KJ1-Iy-SpT" firstAttribute="leading" secondItem="fZX-hE-Rbt" secondAttribute="leading" constant="20" id="DH1-SW-acb"/>
+                            <constraint firstItem="fZX-hE-Rbt" firstAttribute="trailing" secondItem="KJ1-Iy-SpT" secondAttribute="trailing" constant="20" id="LvC-qU-aQ1"/>
+                            <constraint firstItem="KJ1-Iy-SpT" firstAttribute="top" secondItem="fZX-hE-Rbt" secondAttribute="top" constant="5" id="wcI-ch-ceF"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="fZX-hE-Rbt"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="zUB-TH-k93" appends="YES" id="Wjl-qi-xoG"/>
                         </connections>
@@ -131,24 +156,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="218"/>
                     <connections>
-                        <outlet property="asrLabel" destination="ZFz-6t-Kmy" id="b2S-8G-DXm"/>
-                        <outlet property="dateLabel" destination="mLG-Fo-Xx7" id="Wg0-Th-8Yp"/>
-                        <outlet property="dhuhrLabel" destination="lV7-rq-ESG" id="l0C-a6-G0H"/>
-                        <outlet property="fajrLabel" destination="RS3-RB-A24" id="2Qa-he-fqZ"/>
-                        <outlet property="footerStackView" destination="xUp-tq-pnT" id="Pq6-Cq-efg"/>
-                        <outlet property="footerStackViewTopLayoutConstraint" destination="xTH-YI-CVf" id="jFb-bu-WZ1"/>
-                        <outlet property="headerStackView" destination="55f-S4-JKC" id="zSB-id-Kfj"/>
-                        <outlet property="ishaLabel" destination="12V-tY-SfQ" id="X8M-UO-3Ui"/>
-                        <outlet property="locationLabel" destination="GMQ-bK-beq" id="gPd-hB-guO"/>
-                        <outlet property="maghribLabel" destination="8Rg-Z0-ccy" id="7ho-fG-TCz"/>
-                        <outlet property="maxContentStackView" destination="YZs-gk-0Ia" id="ZQ1-1Y-8Mo"/>
-                        <outlet property="minContentStackView" destination="LbK-aI-N0m" id="73w-kF-Iaq"/>
-                        <outlet property="nextPrayerLabel" destination="bPS-OJ-yZ4" id="zDB-cb-6ii"/>
-                        <outlet property="nextPrayerTimeLabel" destination="LGa-F9-NtN" id="OiD-He-T6z"/>
-                        <outlet property="previousPrayerTimeLabel" destination="keq-RJ-fht" id="cdu-4a-saS"/>
-                        <outlet property="separatorView" destination="z4z-Df-oLP" id="KWO-CO-kSU"/>
-                        <outlet property="showMoreButton" destination="5VO-ZZ-yl3" id="jTo-bW-mHe"/>
-                        <outlet property="sunriseLabel" destination="2SJ-Wd-iTz" id="D2k-rV-byL"/>
+                        <outlet property="tableView" destination="KJ1-Iy-SpT" id="hk2-7w-DgG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

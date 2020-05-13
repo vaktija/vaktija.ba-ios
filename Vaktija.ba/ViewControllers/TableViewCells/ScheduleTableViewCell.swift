@@ -6,31 +6,27 @@
 
 import UIKit
 
-class ScheduleTableViewCell: UITableViewCell
-{
+class ScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeRemainingLabel: UILabel!
-    @IBOutlet weak var alarmImageView: UIImageView!
-    @IBOutlet weak var notificationImageView: UIImageView!
-    @IBOutlet weak var separatorView: UIView!
+	
+    @IBOutlet weak var nameLabelLeadingLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet weak var timeLabelTrailingLayoutConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var alarmImageViewTrailingLayoutConstraint: NSLayoutConstraint!
-    @IBOutlet weak var stackViewWidthLayoutConstraint: NSLayoutConstraint!
-    @IBOutlet weak var separatorViewLeadingLayoutConstraint: NSLayoutConstraint!
-    @IBOutlet weak var separatorViewTrailingLayoutConstraint: NSLayoutConstraint!
-    
-    override func awakeFromNib()
-    {
+    override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		
+		backgroundColor = UIColor.backgroundColor
+		timeLabel.textColor = UIColor.subtitleColor
+		nameLabel.textColor = UIColor.titleColor
+		timeRemainingLabel.textColor = UIColor.titleColor
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool)
-    {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-
 }

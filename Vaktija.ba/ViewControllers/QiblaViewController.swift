@@ -13,37 +13,31 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
     
     fileprivate var qiblaCoordinates = CLLocationCoordinate2D(latitude: 21.423333, longitude: 39.823333)
     fileprivate var qiblaAngleDegrees: CLLocationDegrees = 0.0
     
     // MARK: - View's Life Cycle
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        title = "Kibla kompas"
-        
-        locationManager.requestWhenInUseAuthorization()
-        
-        locationManager.delegate = self
-        locationManager.distanceFilter = 10
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        qiblaNeedleImageView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+		navigationItem.title = "Kibla kompas"
+		
+		warningLabel.textColor = UIColor.errorColor
+		settingsButton.setTitleColor(UIColor.actionColor, for: .normal)
+		view.backgroundColor = UIColor.backgroundColor
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
         
+		prepareLocationManager()
         prepareHeadingOrientation()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(deviceDidChangeOrientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     override func viewDidDisappear(_ animated: Bool)
@@ -52,13 +46,6 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
         
         locationManager.stopUpdatingLocation()
         locationManager.stopUpdatingHeading()
-        
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-    }
-    
-    func deviceDidChangeOrientation()
-    {
-        prepareHeadingOrientation()
     }
     
     // MARK: Core Location Delegates
@@ -80,7 +67,7 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
     {
         if !qiblaNeedleImageView.isHidden
         {
-            let rotateQiblaAngleRadians = CGFloat((qiblaAngleDegrees - newHeading.trueHeading)*M_PI/180.0)
+            let rotateQiblaAngleRadians = CGFloat((qiblaAngleDegrees - newHeading.trueHeading)*Double.pi/180.0)
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.qiblaNeedleImageView.transform = CGAffineTransform(rotationAngle: rotateQiblaAngleRadians)
@@ -130,12 +117,12 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
     
     @IBAction func settingsButtonClick(_ sender: UIButton)
     {
-        let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+        let settingsUrl = URL(string: UIApplication.openSettingsURLString)
         if UIApplication.shared.canOpenURL(settingsUrl!)
         {
             if #available(iOS 10.0, *)
             {
-                UIApplication.shared.open(settingsUrl!, options: [:], completionHandler: nil)
+				UIApplication.shared.open(settingsUrl!, options: [:], completionHandler: nil)
             }
             else
             {
@@ -145,15 +132,25 @@ class QiblaViewController: UIViewController, CLLocationManagerDelegate
     }
     
     // MARK: Private Functions
+	
+	fileprivate func prepareLocationManager() {
+		locationManager = CLLocationManager()
+		locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.distanceFilter = 10
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+		qiblaNeedleImageView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.95)
+	}
     
     fileprivate func calculateQiblaAngleDegrees(_ currentCoordinates: CLLocationCoordinate2D)
     {
-        let qiblaLatitudeRadians = qiblaCoordinates.latitude*M_PI/180.0
-        let qiblaLongitudeRadians = qiblaCoordinates.longitude*M_PI/180.0
-        let currentLatitudeRadians = currentCoordinates.latitude*M_PI/180.0
-        let currentLongitudeRadians = currentCoordinates.longitude*M_PI/180.0
+        let qiblaLatitudeRadians = qiblaCoordinates.latitude*Double.pi/180.0
+        let qiblaLongitudeRadians = qiblaCoordinates.longitude*Double.pi/180.0
+        let currentLatitudeRadians = currentCoordinates.latitude*Double.pi/180.0
+        let currentLongitudeRadians = currentCoordinates.longitude*Double.pi/180.0
         
-        qiblaAngleDegrees = 180.0/M_PI*atan2(sin(qiblaLongitudeRadians - currentLongitudeRadians), cos(currentLatitudeRadians)*tan(qiblaLatitudeRadians) - sin(currentLatitudeRadians)*cos(qiblaLongitudeRadians - currentLongitudeRadians))
+        qiblaAngleDegrees = 180.0/Double.pi*atan2(sin(qiblaLongitudeRadians - currentLongitudeRadians), cos(currentLatitudeRadians)*tan(qiblaLatitudeRadians) - sin(currentLatitudeRadians)*cos(qiblaLongitudeRadians - currentLongitudeRadians))
     }
     
     fileprivate func prepareHeadingOrientation()

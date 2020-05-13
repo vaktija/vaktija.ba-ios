@@ -8,8 +8,7 @@ import UIKit
 import CoreData
 import UserNotifications
 
-class TimesTableViewController: UITableViewController
-{
+class TimesTableViewController: UITableViewController {
     @IBOutlet weak var headerLabel: UILabel!
     
     fileprivate var dates: [String] = []
@@ -17,12 +16,12 @@ class TimesTableViewController: UITableViewController
     
     // MARK: - View's Life Cycle
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Zakazane obavijesti"
+		navigationItem.title = "Zakazane obavijesti"
         
+		tableView.register(TableViewHeaderView.nib, forHeaderFooterViewReuseIdentifier: TableViewHeaderView.reuseIdentifier)
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         let userDefaults = UserDefaults(suiteName: "group.ba.vaktija.Vaktija.ba")
@@ -30,8 +29,7 @@ class TimesTableViewController: UITableViewController
         let locationsFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "VBLocation")
         locationsFetchRequest.predicate = NSPredicate(format: "id == %d", userDefaults!.integer(forKey: "locationId"))
         
-        do
-        {
+        do {
             let locations = try VBCoreDataStack.sharedInstance.managedObjectContext.fetch(locationsFetchRequest) as! [VBLocation]
             
             if locations.count > 0
@@ -40,29 +38,31 @@ class TimesTableViewController: UITableViewController
                 
                 headerLabel.text = location?.location?.capitalized
             }
-        }
-        catch
-        {
+        } catch {
             print(error)
         }
+		
+		headerLabel.textColor = UIColor.titleColor
+		view.backgroundColor = UIColor.backgroundColor
+		tableView.backgroundColor = UIColor.backgroundColor
         
         let activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: tableView.frame.midX - 15.0, y: tableView.frame.midY - 30.0, width: 30.0, height: 30.0))
         activityIndicatorView.hidesWhenStopped = true
-        activityIndicatorView.activityIndicatorViewStyle = .gray
+		if #available(iOS 13.0, *) {
+			activityIndicatorView.style = .medium
+		} else {
+			activityIndicatorView.style = .gray
+		}
         
         tableView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
         
-        if #available(iOS 10.0, *)
-        {
-            UNUserNotificationCenter.current().getPendingNotificationRequests
-            {
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getPendingNotificationRequests {
                 (scheduledRequests) in
                 
-                if scheduledRequests.isEmpty
-                {
-                    OperationQueue.main.addOperation
-                    {
+                if scheduledRequests.isEmpty {
+                    OperationQueue.main.addOperation {
                         activityIndicatorView.stopAnimating()
                     }
                     
@@ -71,10 +71,7 @@ class TimesTableViewController: UITableViewController
                 
                 var requests = scheduledRequests
                 
-                requests.sort(by:
-                {
-                    (request1, request2) -> Bool in
-                    
+                requests.sort(by: { (request1, request2) -> Bool in
                     if let trigger1 = request1.trigger as? UNCalendarNotificationTrigger, let trigger2 = request2.trigger as? UNCalendarNotificationTrigger, let date1 = Calendar.current.date(from: trigger1.dateComponents), let date2 = Calendar.current.date(from: trigger2.dateComponents)
                     {
                         return date1.compare(date2) == .orderedAscending
@@ -135,11 +132,12 @@ class TimesTableViewController: UITableViewController
                     {
                         if previousPrayer == prayer
                         {
-                            var previousTimes = self.times.last
-                            var previousTime = previousTimes?.last
-                            previousTime?["notification"] = timeString
-                            previousTimes?[previousTimes!.count - 1] = previousTime!
-                            self.times[self.times.count - 1] = previousTimes!
+							if var previousTimes = self.times.last, var previousTime = previousTimes.last
+							{
+								previousTime["notification"] = timeString
+								previousTimes[previousTimes.count - 1] = previousTime
+								self.times[self.times.count - 1] = previousTimes
+							}
                         }
                         else
                         {
@@ -231,11 +229,12 @@ class TimesTableViewController: UITableViewController
                     {
                         if previousPrayer == prayer
                         {
-                            var previousTimes = self.times.last
-                            var previousTime = previousTimes?.last
-                            previousTime?["notification"] = timeString
-                            previousTimes?[previousTimes!.count - 1] = previousTime!
-                            self.times[self.times.count - 1] = previousTimes!
+							if var previousTimes = self.times.last, var previousTime = previousTimes.last
+							{
+								previousTime["notification"] = timeString
+								previousTimes[previousTimes.count - 1] = previousTime
+								self.times[self.times.count - 1] = previousTimes
+							}
                         }
                         else
                         {
@@ -274,11 +273,6 @@ class TimesTableViewController: UITableViewController
     {
         return times[section].count
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    {
-        return dates[section]
-    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
@@ -290,9 +284,28 @@ class TimesTableViewController: UITableViewController
         let notification = (time["notification"] == "" ? "" : "Notifikacija: " + time["notification"]! + "h")
         let newLine = ((time["alarm"] != "" && time["notification"] != "") ? "\n" : "")
         
+		cell.backgroundColor = UIColor.backgroundColor
         cell.textLabel?.text = time["prayer"]! + " " + time["time"]! + "h"
+		cell.textLabel?.textColor = UIColor.titleColor
         cell.detailTextLabel?.text = alarm + newLine + notification
+		cell.detailTextLabel?.textColor = UIColor.subtitleColor
 
         return cell
     }
+}
+
+// MARK - Table View Delegates
+
+extension TimesTableViewController {
+	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: TableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else {
+			return nil
+		}
+		headerView.titleLabel.text = dates[section]
+		return headerView
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 28.0
+	}
 }
