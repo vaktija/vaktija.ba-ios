@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "logo-1.png",
+      "filename" : "300.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "logo.png",
+      "filename" : "300-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,12 +23,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "logo-2.png",
+      "filename" : "300w.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logo@2x-1.png",
+      "filename" : "600-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -39,7 +39,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "logo@2x.png",
+      "filename" : "600.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -50,7 +50,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "logo@2x-2.png",
+      "filename" : "600w.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -66,7 +66,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "logo@3x.png",
+      "filename" : "logo@3x-3.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -77,7 +77,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "logo@3x-2.png",
+      "filename" : "900w.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
